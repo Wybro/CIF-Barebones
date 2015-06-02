@@ -7,17 +7,27 @@
 //
 
 import Foundation
+import Parse
 
 class Event {
     var title: String
     var location: String
+    var geoPoint: PFGeoPoint
     var bio: String
     var requirements: String
     
     
-    init(eventTitle: String, eventLocation: String, eventBio: String, eventReq: String){
+//    init(eventTitle: String, eventLocation: String, eventBio: String, eventReq: String){
+//        self.title = eventTitle
+//        self.location = eventLocation
+//        self.bio = eventBio
+//        self.requirements = eventReq
+//    }
+    
+    init(eventTitle: String, eventLocation: String, geoLocation: PFGeoPoint, eventBio: String, eventReq: String){
         self.title = eventTitle
         self.location = eventLocation
+        self.geoPoint = geoLocation
         self.bio = eventBio
         self.requirements = eventReq
     }
@@ -29,6 +39,10 @@ class Event {
     
     func getLocation() -> String {
         return self.location
+    }
+    
+    func getGeoPoint() -> PFGeoPoint {
+        return self.geoPoint
     }
     
     func getBio() -> String {

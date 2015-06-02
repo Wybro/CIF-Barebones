@@ -37,9 +37,11 @@ class exploreViewController: UIViewController, UITableViewDataSource {
                 for event: AnyObject in objects! {
                     let eventTitle = event["title"] as! String
                     let eventLocation = event["location"] as! String
+                    let eventGeoPoint = event["geoPoint"] as! PFGeoPoint
                     let eventBio = event["bio"] as! String
                     let eventReqs = event["requirements"] as! String
-                    let newEvent: Event = Event(eventTitle: eventTitle, eventLocation: eventLocation, eventBio: eventBio, eventReq: eventReqs)
+//                    let newEvent: Event = Event(eventTitle: eventTitle, eventLocation: eventLocation, eventBio: eventBio, eventReq: eventReqs)
+                    let newEvent: Event = Event(eventTitle: eventTitle, eventLocation: eventLocation, geoLocation: eventGeoPoint, eventBio: eventBio, eventReq: eventReqs)
                     
                     if !self.eventData.containsObject(newEvent){
                         self.eventData.addObject(newEvent)
@@ -76,6 +78,7 @@ class exploreViewController: UIViewController, UITableViewDataSource {
             var destViewController = segue.destinationViewController as! eventViewController
             destViewController.selectedEventTitle = selectedEvent.getTitle()
             destViewController.selectedEventLocation = selectedEvent.getLocation()
+            destViewController.selectedEventGeoPoint = selectedEvent.getGeoPoint()
             destViewController.selectedEventBio = selectedEvent.getBio()
             destViewController.selectedEventRequirements = selectedEvent.getRequirements()
         }
