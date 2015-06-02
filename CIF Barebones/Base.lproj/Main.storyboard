@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="04H-MX-3zp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Home Page-->
@@ -58,7 +59,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location of Event" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gm-iS-UQc">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
                                                         <rect key="frame" x="8" y="60" width="384" height="30"/>
@@ -81,27 +82,42 @@
                                         <connections>
                                             <outlet property="locationOfEvent" destination="6gm-iS-UQc" id="LqM-KF-A1c"/>
                                             <outlet property="titleOfEvent" destination="CWy-kf-FQP" id="BpZ-Df-bJK"/>
-                                            <segue destination="4SG-mj-16Y" kind="show" id="pgG-r5-bu0"/>
+                                            <segue destination="4SG-mj-16Y" kind="show" identifier="eventMoreInfo" id="pgG-r5-bu0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="487"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="eFt-A4-kFQ" id="AWy-qx-gap"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cMr-SK-pGA" firstAttribute="top" secondItem="DAN-Nl-ojd" secondAttribute="bottom" id="AaD-e1-inV"/>
+                            <constraint firstItem="Uqh-6W-LKz" firstAttribute="top" secondItem="cMr-SK-pGA" secondAttribute="bottom" id="FtH-T6-1pK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cMr-SK-pGA" secondAttribute="trailing" constant="-16" id="Gqq-zA-4dH"/>
+                            <constraint firstItem="cMr-SK-pGA" firstAttribute="leading" secondItem="xbR-6e-vFu" secondAttribute="leadingMargin" constant="-16" id="cER-2D-8jX"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="cMr-SK-pGA"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="AaD-e1-inV"/>
+                                <exclude reference="Gqq-zA-4dH"/>
+                                <exclude reference="cER-2D-8jX"/>
+                                <exclude reference="FtH-T6-1pK"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="cMr-SK-pGA"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="AaD-e1-inV"/>
+                                <include reference="Gqq-zA-4dH"/>
+                                <include reference="cER-2D-8jX"/>
+                                <include reference="FtH-T6-1pK"/>
                             </mask>
                         </variation>
                     </view>
@@ -125,6 +141,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lQc-0l-sow"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FEx-rR-uyq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hr1-zO-7xE">

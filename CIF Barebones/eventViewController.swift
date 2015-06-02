@@ -10,16 +10,25 @@ import UIKit
 
 class eventViewController: UIViewController {
     
+    var selectedEventTitle: String?
+    var selectedEventLocation: String?
+    var selectedEventBio: String?
+    var selectedEventRequirements: String?
+    
     @IBOutlet weak var eventTitle: UILabel!
     @IBOutlet weak var eventLocation: UILabel!
     @IBOutlet weak var eventBio: UITextView!
     @IBOutlet weak var eventRequirements: UITextView!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.eventTitle.text = selectedEventTitle
+        self.eventLocation.text = selectedEventLocation
+        self.eventBio.text = selectedEventBio
+        self.eventRequirements.text = selectedEventRequirements
     }
     
     override func didReceiveMemoryWarning() {
