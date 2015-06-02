@@ -33,7 +33,9 @@ class eventViewController: UIViewController {
         self.eventLocation.text = selectedEventLocation
         
         self.eventBio.text = selectedEventBio
+        self.eventBio.scrollRangeToVisible(NSMakeRange(0, 0))
         self.eventRequirements.text = selectedEventRequirements
+        self.eventRequirements.scrollRangeToVisible(NSMakeRange(0, 0))
         
         // PFGeoPoint Parse
         println(selectedEventGeoPoint)
