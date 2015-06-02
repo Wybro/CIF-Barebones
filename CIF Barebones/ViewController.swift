@@ -17,6 +17,14 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         
+        
+        PFCloud.callFunctionInBackground("hello", withParameters: nil) {
+            (response: AnyObject?, error: NSError?) -> Void in
+            let responseString = response as? String
+            println(responseString)
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
