@@ -20,6 +20,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Account" id="WKz-qT-7tz">
                         <barButtonItem key="leftBarButtonItem" image="Hamburger" id="1RV-tY-BkB"/>
+                        <barButtonItem key="rightBarButtonItem" image="Settings" id="kgf-dm-kKA"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -147,6 +148,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Volunteer Events" id="kA1-UR-IHA">
                         <barButtonItem key="leftBarButtonItem" image="Hamburger" id="4Gc-WJ-OVQ"/>
+                        <barButtonItem key="rightBarButtonItem" image="Settings" id="cII-qp-oP5"/>
                     </navigationItem>
                     <connections>
                         <outlet property="eventsList" destination="cMr-SK-pGA" id="hHr-ds-xJQ"/>
@@ -355,6 +357,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Events" id="JcY-vz-zku">
                         <barButtonItem key="leftBarButtonItem" image="Hamburger" id="lD2-pu-K6K"/>
+                        <barButtonItem key="rightBarButtonItem" image="Settings" id="kYL-Ar-pzQ"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDz-br-bGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -444,5 +447,6 @@
         <image name="Hamburger" width="22" height="22"/>
         <image name="House" width="22" height="22"/>
         <image name="My Events" width="22" height="22"/>
+        <image name="Settings" width="22" height="22"/>
     </resources>
 </document>

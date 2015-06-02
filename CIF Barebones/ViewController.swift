@@ -18,11 +18,11 @@ class ViewController: UIViewController {
         
         
         
-        PFCloud.callFunctionInBackground("hello", withParameters: nil) {
-            (response: AnyObject?, error: NSError?) -> Void in
-            let responseString = response as? String
-            println(responseString)
-        }
+//        PFCloud.callFunctionInBackground("hello", withParameters: nil) {
+//            (response: AnyObject?, error: NSError?) -> Void in
+//            let responseString = response as? String
+//            println(responseString)
+//        }
         
         
     }
