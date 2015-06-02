@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import MapKit
 
 class eventViewController: UIViewController {
     
@@ -21,6 +22,7 @@ class eventViewController: UIViewController {
     @IBOutlet weak var eventLocation: UILabel!
     @IBOutlet weak var eventBio: UITextView!
     @IBOutlet weak var eventRequirements: UITextView!
+    @IBOutlet weak var mapView: MKMapView!
     
     
     override func viewDidLoad() {
@@ -58,6 +60,21 @@ class eventViewController: UIViewController {
                 println("Error with data")
             }
         })
+        
+        
+        //MKMapView 
+        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let newLocation = CLLocationCoordinate2D(latitude: (selectedEventGeoPoint?.latitude)!, longitude: (selectedEventGeoPoint?.longitude)!)
+        let region = MKCoordinateRegion(center: newLocation, span: span)
+        mapView.setRegion(region, animated: true)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = newLocation
+        mapView.addAnnotation(annotation)
+        
+        
+        
+        
+        
         
         
     }
