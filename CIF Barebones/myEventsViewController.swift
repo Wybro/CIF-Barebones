@@ -54,8 +54,8 @@ class myEventsViewController: UIViewController, UITableViewDataSource {
                 
                 }
                 self.myEventsTableView.reloadData()
-                println(self.upcomingEventData)
-                println(self.pastEventData)
+//                println(self.upcomingEventData)
+//                println(self.pastEventData)
             }
             else {
                 println(error)

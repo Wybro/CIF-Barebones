@@ -38,6 +38,34 @@ class savedEventViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    @IBAction func showCalendarActionSheet(sender: AnyObject) {
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let createEventAction = UIAlertAction(title: "Create Event", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            println("Create event option picked!")
+        })
+        
+        let showInCalendarAction = UIAlertAction(title: "Show in Calendar", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            println("Show in Calendar option picked!")
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            println("Cancelled")
+        })
+        
+        optionMenu.addAction(createEventAction)
+        optionMenu.addAction(showInCalendarAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+        
+    }
+    
 
 
 }

@@ -840,7 +840,7 @@
             </objects>
             <point key="canvasLocation" x="2269" y="1168"/>
         </scene>
-        <!--Saved Event View Controller-->
+        <!--Event-->
         <scene sceneID="elf-KV-yfY">
             <objects>
                 <viewController id="PKe-Ta-BHs" customClass="savedEventViewController" customModule="CIF_Barebones" customModuleProvider="target" sceneMemberID="viewController">
@@ -962,6 +962,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Event" id="Jec-nT-rRz">
+                        <barButtonItem key="rightBarButtonItem" image="Calendar" id="t1n-N5-F6O">
+                            <connections>
+                                <action selector="showCalendarActionSheet:" destination="PKe-Ta-BHs" id="3DJ-i2-0cE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="eventLocation" destination="0kS-Af-1z3" id="ODU-NC-vh2"/>
                         <outlet property="eventTitle" destination="7gK-gf-Ec1" id="8hu-Hb-xUR"/>
@@ -1052,6 +1059,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Calendar" width="22" height="22"/>
         <image name="Explore" width="22" height="22"/>
         <image name="Hamburger" width="22" height="22"/>
         <image name="House" width="22" height="22"/>
