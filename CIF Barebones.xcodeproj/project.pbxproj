@@ -30,6 +30,9 @@
 		2D7AF7C51B1D41F200C2B62F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7AF7C41B1D41F200C2B62F /* libz.dylib */; };
 		2D7AF7C71B1D41FC00C2B62F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7AF7C61B1D41FC00C2B62F /* libsqlite3.dylib */; };
 		2D7AF7CA1B1D42E200C2B62F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7AF7C91B1D42E200C2B62F /* Bolts.framework */; };
+		2D7E02021B1FF949006F053F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D723DC31B1BF28600A2F782 /* Main.storyboard */; };
+		2D7E020E1B1FFC14006F053F /* myAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7E020D1B1FFC14006F053F /* myAccountViewController.swift */; };
+		2D8D09FA1B1FF3280051832E /* hoursView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D09F91B1FF3280051832E /* hoursView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,8 @@
 		2D7AF7C41B1D41F200C2B62F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2D7AF7C61B1D41FC00C2B62F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		2D7AF7C91B1D42E200C2B62F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		2D7E020D1B1FFC14006F053F /* myAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myAccountViewController.swift; sourceTree = "<group>"; };
+		2D8D09F91B1FF3280051832E /* hoursView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hoursView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +136,8 @@
 				2D723DE11B1C019600A2F782 /* eventClass.swift */,
 				2D723DDF1B1BFF0F00A2F782 /* eventTableViewCell.swift */,
 				2D723DE51B1C05C200A2F782 /* exploreViewController.swift */,
+				2D7E020D1B1FFC14006F053F /* myAccountViewController.swift */,
+				2D8D09F91B1FF3280051832E /* hoursView.swift */,
 				2D723DC31B1BF28600A2F782 /* Main.storyboard */,
 				2D723DC61B1BF28600A2F782 /* Images.xcassets */,
 				2D723DC81B1BF28600A2F782 /* LaunchScreen.xib */,
@@ -283,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D7E02021B1FF949006F053F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,9 +303,11 @@
 			files = (
 				2D723DE01B1BFF0F00A2F782 /* eventTableViewCell.swift in Sources */,
 				2D723DE41B1C04D000A2F782 /* eventViewController.swift in Sources */,
+				2D7E020E1B1FFC14006F053F /* myAccountViewController.swift in Sources */,
 				2D723DC21B1BF28600A2F782 /* ViewController.swift in Sources */,
 				2D723DC01B1BF28600A2F782 /* AppDelegate.swift in Sources */,
 				2D723DE61B1C05C200A2F782 /* exploreViewController.swift in Sources */,
+				2D8D09FA1B1FF3280051832E /* hoursView.swift in Sources */,
 				2D723DE21B1C019600A2F782 /* eventClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
