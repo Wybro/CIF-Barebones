@@ -91,6 +91,22 @@ class myEventsViewController: UIViewController, UITableViewDataSource {
         return eventType
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "userEventMoreInfo" {
+            let userEventData: NSArray = [upcomingEventData, pastEventData]
+            var indexPath: NSIndexPath = self.myEventsTableView.indexPathForSelectedRow()!
+            var selectedEventType: NSMutableArray = userEventData[indexPath.section] as! NSMutableArray
+            var selectedEvent: PFObject = selectedEventType[indexPath.row] as! PFObject
+            var destViewController = segue.destinationViewController as! savedEventViewController
+            
+            destViewController.selectedEventTitle = selectedEvent["title"] as? String
+            destViewController.selectedEventLocation = selectedEvent["location"] as? String
+            destViewController.selectedEventType = selectedEvent["type"] as? String
+            
+        }
+    }
+
+    
     
 
 

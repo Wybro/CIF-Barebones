@@ -789,6 +789,7 @@
                                         <connections>
                                             <outlet property="locationOfEvent" destination="oYK-eJ-iry" id="cI2-Kd-def"/>
                                             <outlet property="titleOfEvent" destination="mGE-xR-aOH" id="nF6-Ny-gkk"/>
+                                            <segue destination="PKe-Ta-BHs" kind="show" identifier="userEventMoreInfo" id="jTS-Wc-2pf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -809,10 +810,10 @@
                                 <exclude reference="4ib-mA-uHT"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="fAd-su-Zyu"/>
                                 <exclude reference="1Gt-6d-eEk"/>
                                 <exclude reference="QxL-bU-ITv"/>
                                 <exclude reference="nE9-C4-k0N"/>
-                                <exclude reference="fAd-su-Zyu"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -820,10 +821,10 @@
                                 <include reference="4ib-mA-uHT"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="fAd-su-Zyu"/>
                                 <include reference="1Gt-6d-eEk"/>
                                 <include reference="QxL-bU-ITv"/>
                                 <include reference="nE9-C4-k0N"/>
-                                <include reference="fAd-su-Zyu"/>
                             </mask>
                         </variation>
                     </view>
@@ -838,6 +839,139 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDz-br-bGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2269" y="1168"/>
+        </scene>
+        <!--Saved Event View Controller-->
+        <scene sceneID="elf-KV-yfY">
+            <objects>
+                <viewController id="PKe-Ta-BHs" customClass="savedEventViewController" customModule="CIF_Barebones" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="db9-Sx-CVk"/>
+                        <viewControllerLayoutGuide type="bottom" id="eRr-vG-zLT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6dZ-Zd-BeF">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receive reminders for this event" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nip-I3-SSn">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="153" id="eTW-UX-MOh"/>
+                                    <constraint firstAttribute="height" constant="41" id="tbx-Xl-zL3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="eTW-UX-MOh"/>
+                                        <exclude reference="tbx-Xl-zL3"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="eTW-UX-MOh"/>
+                                        <include reference="tbx-Xl-zL3"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEu-p7-dBn">
+                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of Event" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7gK-gf-Ec1">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0kS-Af-1z3">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="368" id="dBt-x4-kRc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="dBt-x4-kRc"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="dBt-x4-kRc"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7gK-gf-Ec1" firstAttribute="trailing" secondItem="6dZ-Zd-BeF" secondAttribute="trailingMargin" id="ICa-A8-7QB"/>
+                            <constraint firstItem="7gK-gf-Ec1" firstAttribute="top" secondItem="sEu-p7-dBn" secondAttribute="bottom" constant="20" id="Jej-dt-a6m"/>
+                            <constraint firstItem="sEu-p7-dBn" firstAttribute="top" secondItem="db9-Sx-CVk" secondAttribute="bottom" constant="14" id="Ky3-ny-Jbt"/>
+                            <constraint firstItem="sEu-p7-dBn" firstAttribute="leading" secondItem="nip-I3-SSn" secondAttribute="trailing" constant="7" id="OYd-it-ZwW"/>
+                            <constraint firstAttribute="centerX" secondItem="0kS-Af-1z3" secondAttribute="centerX" id="RA5-b6-DWf"/>
+                            <constraint firstItem="nip-I3-SSn" firstAttribute="leading" secondItem="6dZ-Zd-BeF" secondAttribute="leadingMargin" id="Rmg-3K-yMc"/>
+                            <constraint firstItem="nip-I3-SSn" firstAttribute="top" secondItem="db9-Sx-CVk" secondAttribute="bottom" constant="8" id="WTU-bD-2v1"/>
+                            <constraint firstAttribute="centerX" secondItem="sEu-p7-dBn" secondAttribute="centerX" constant="-0.5" id="dUW-X8-tUY"/>
+                            <constraint firstItem="0kS-Af-1z3" firstAttribute="top" secondItem="7gK-gf-Ec1" secondAttribute="bottom" constant="8" id="he5-Ad-nyY"/>
+                            <constraint firstItem="7gK-gf-Ec1" firstAttribute="leading" secondItem="6dZ-Zd-BeF" secondAttribute="leadingMargin" id="oTH-DM-TZJ"/>
+                            <constraint firstAttribute="centerX" secondItem="7gK-gf-Ec1" secondAttribute="centerX" id="rVg-qF-OjH"/>
+                            <constraint firstItem="eRr-vG-zLT" firstAttribute="top" secondItem="7gK-gf-Ec1" secondAttribute="bottom" constant="368" id="tYE-ji-QkO"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="nip-I3-SSn"/>
+                                <exclude reference="sEu-p7-dBn"/>
+                                <exclude reference="7gK-gf-Ec1"/>
+                                <exclude reference="0kS-Af-1z3"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Rmg-3K-yMc"/>
+                                <exclude reference="WTU-bD-2v1"/>
+                                <exclude reference="ICa-A8-7QB"/>
+                                <exclude reference="Jej-dt-a6m"/>
+                                <exclude reference="oTH-DM-TZJ"/>
+                                <exclude reference="rVg-qF-OjH"/>
+                                <exclude reference="RA5-b6-DWf"/>
+                                <exclude reference="he5-Ad-nyY"/>
+                                <exclude reference="Ky3-ny-Jbt"/>
+                                <exclude reference="OYd-it-ZwW"/>
+                                <exclude reference="dUW-X8-tUY"/>
+                                <exclude reference="tYE-ji-QkO"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="nip-I3-SSn"/>
+                                <include reference="sEu-p7-dBn"/>
+                                <include reference="7gK-gf-Ec1"/>
+                                <include reference="0kS-Af-1z3"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Rmg-3K-yMc"/>
+                                <include reference="WTU-bD-2v1"/>
+                                <include reference="ICa-A8-7QB"/>
+                                <include reference="Jej-dt-a6m"/>
+                                <include reference="oTH-DM-TZJ"/>
+                                <include reference="rVg-qF-OjH"/>
+                                <include reference="RA5-b6-DWf"/>
+                                <include reference="he5-Ad-nyY"/>
+                                <include reference="Ky3-ny-Jbt"/>
+                                <include reference="OYd-it-ZwW"/>
+                                <include reference="dUW-X8-tUY"/>
+                                <include reference="tYE-ji-QkO"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="eventLocation" destination="0kS-Af-1z3" id="ODU-NC-vh2"/>
+                        <outlet property="eventTitle" destination="7gK-gf-Ec1" id="8hu-Hb-xUR"/>
+                        <outlet property="remindersLabel" destination="nip-I3-SSn" id="81Z-Zp-ceW"/>
+                        <outlet property="remindersSwitch" destination="sEu-p7-dBn" id="bCA-pu-DlU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bqA-r6-JBb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3028.5" y="1168"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="BTa-OE-hFv">

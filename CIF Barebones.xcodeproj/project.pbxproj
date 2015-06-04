@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D15BDB21B20C2EF0018F775 /* myEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D15BDB11B20C2EF0018F775 /* myEventsViewController.swift */; };
 		2D3EF1E41B1E41870044F391 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3EF1E31B1E41860044F391 /* MapKit.framework */; };
+		2D5526AF1B20D3F1001C863F /* savedEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5526AE1B20D3F1001C863F /* savedEventViewController.swift */; };
 		2D723DC01B1BF28600A2F782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D723DBF1B1BF28600A2F782 /* AppDelegate.swift */; };
 		2D723DC21B1BF28600A2F782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D723DC11B1BF28600A2F782 /* ViewController.swift */; };
 		2D723DC51B1BF28600A2F782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D723DC31B1BF28600A2F782 /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		2D15BDB11B20C2EF0018F775 /* myEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myEventsViewController.swift; sourceTree = "<group>"; };
 		2D3EF1E31B1E41860044F391 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2D5526AE1B20D3F1001C863F /* savedEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = savedEventViewController.swift; sourceTree = "<group>"; };
 		2D723DBA1B1BF28600A2F782 /* CIF Barebones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CIF Barebones.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D723DBE1B1BF28600A2F782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D723DBF1B1BF28600A2F782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				2D723DE51B1C05C200A2F782 /* exploreViewController.swift */,
 				2D7E020D1B1FFC14006F053F /* myAccountViewController.swift */,
 				2D8D09F91B1FF3280051832E /* hoursView.swift */,
+				2D5526AE1B20D3F1001C863F /* savedEventViewController.swift */,
 				2D15BDB11B20C2EF0018F775 /* myEventsViewController.swift */,
 				2D723DC31B1BF28600A2F782 /* Main.storyboard */,
 				2D723DC61B1BF28600A2F782 /* Images.xcassets */,
@@ -309,6 +312,7 @@
 				2D7E020E1B1FFC14006F053F /* myAccountViewController.swift in Sources */,
 				2D723DC21B1BF28600A2F782 /* ViewController.swift in Sources */,
 				2D723DC01B1BF28600A2F782 /* AppDelegate.swift in Sources */,
+				2D5526AF1B20D3F1001C863F /* savedEventViewController.swift in Sources */,
 				2D15BDB21B20C2EF0018F775 /* myEventsViewController.swift in Sources */,
 				2D723DE61B1C05C200A2F782 /* exploreViewController.swift in Sources */,
 				2D8D09FA1B1FF3280051832E /* hoursView.swift in Sources */,
