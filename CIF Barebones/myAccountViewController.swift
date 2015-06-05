@@ -12,6 +12,8 @@ class myAccountViewController: UIViewController {
     
     @IBOutlet weak var hoursVisual: hoursView!
     @IBOutlet weak var hoursLabel: UILabel!
+    
+    var showSignupFlowOnce: Bool = false
 
     @IBAction func increment(sender: UIButton) {
 //        UIView.animateWithDuration(1, delay: 0, options: .CurveLinear, animations: {
@@ -38,8 +40,16 @@ class myAccountViewController: UIViewController {
         super.viewDidLoad()
         
         hoursLabel.text = String(hoursVisual.counter)
+        
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if !showSignupFlowOnce {
+            self.performSegueWithIdentifier("signupFlow", sender: self)
+            self.showSignupFlowOnce = true
+        }
     }
 
     override func didReceiveMemoryWarning() {

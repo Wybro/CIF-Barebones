@@ -24,6 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
          PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
+        // page control settings
+        var cheggOrangeColor = UIColor(red: 255/255, green: 128/255, blue: 0/255, alpha: 1)
+        var pageController = UIPageControl.appearance()
+        pageController.pageIndicatorTintColor = UIColor.lightGrayColor()
+        pageController.currentPageIndicatorTintColor = cheggOrangeColor
+        pageController.backgroundColor = UIColor.whiteColor()
         
         return true
     }
