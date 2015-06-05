@@ -373,6 +373,7 @@
             <objects>
                 <tableViewController id="YCg-dI-Onp" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="WWV-df-v4W">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -553,6 +554,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2nu-ac-Afj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NFA-3w-d2f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C09-MH-gGA">
@@ -650,12 +652,12 @@
                             <mask key="constraints">
                                 <exclude reference="jAf-tj-Sww"/>
                                 <exclude reference="yAj-ab-vAb"/>
-                                <exclude reference="bXR-cn-AG1"/>
-                                <exclude reference="joC-3q-xR4"/>
                                 <exclude reference="4ax-V7-jkX"/>
                                 <exclude reference="hxV-F8-h0M"/>
                                 <exclude reference="huY-kF-YAt"/>
                                 <exclude reference="orh-VP-jwj"/>
+                                <exclude reference="bXR-cn-AG1"/>
+                                <exclude reference="joC-3q-xR4"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -668,12 +670,12 @@
                             <mask key="constraints">
                                 <include reference="jAf-tj-Sww"/>
                                 <include reference="yAj-ab-vAb"/>
-                                <include reference="bXR-cn-AG1"/>
-                                <include reference="joC-3q-xR4"/>
                                 <include reference="4ax-V7-jkX"/>
                                 <include reference="hxV-F8-h0M"/>
                                 <include reference="huY-kF-YAt"/>
                                 <include reference="orh-VP-jwj"/>
+                                <include reference="bXR-cn-AG1"/>
+                                <include reference="joC-3q-xR4"/>
                             </mask>
                         </variation>
                     </view>
@@ -1176,6 +1178,7 @@
                         <viewControllerLayoutGuide type="bottom" id="eRr-vG-zLT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6dZ-Zd-BeF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receive reminders for this event" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nip-I3-SSn">
@@ -1252,18 +1255,18 @@
                                 <exclude reference="0kS-Af-1z3"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Rmg-3K-yMc"/>
-                                <exclude reference="WTU-bD-2v1"/>
+                                <exclude reference="RA5-b6-DWf"/>
+                                <exclude reference="he5-Ad-nyY"/>
                                 <exclude reference="ICa-A8-7QB"/>
                                 <exclude reference="Jej-dt-a6m"/>
                                 <exclude reference="oTH-DM-TZJ"/>
                                 <exclude reference="rVg-qF-OjH"/>
-                                <exclude reference="RA5-b6-DWf"/>
-                                <exclude reference="he5-Ad-nyY"/>
+                                <exclude reference="tYE-ji-QkO"/>
+                                <exclude reference="Rmg-3K-yMc"/>
+                                <exclude reference="WTU-bD-2v1"/>
                                 <exclude reference="Ky3-ny-Jbt"/>
                                 <exclude reference="OYd-it-ZwW"/>
                                 <exclude reference="dUW-X8-tUY"/>
-                                <exclude reference="tYE-ji-QkO"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1274,18 +1277,18 @@
                                 <include reference="0kS-Af-1z3"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Rmg-3K-yMc"/>
-                                <include reference="WTU-bD-2v1"/>
+                                <include reference="RA5-b6-DWf"/>
+                                <include reference="he5-Ad-nyY"/>
                                 <include reference="ICa-A8-7QB"/>
                                 <include reference="Jej-dt-a6m"/>
                                 <include reference="oTH-DM-TZJ"/>
                                 <include reference="rVg-qF-OjH"/>
-                                <include reference="RA5-b6-DWf"/>
-                                <include reference="he5-Ad-nyY"/>
+                                <include reference="tYE-ji-QkO"/>
+                                <include reference="Rmg-3K-yMc"/>
+                                <include reference="WTU-bD-2v1"/>
                                 <include reference="Ky3-ny-Jbt"/>
                                 <include reference="OYd-it-ZwW"/>
                                 <include reference="dUW-X8-tUY"/>
-                                <include reference="tYE-ji-QkO"/>
                             </mask>
                         </variation>
                     </view>
@@ -1395,6 +1398,6 @@
         <image name="Settings" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fK0-W0-Jx6"/>
+        <segue reference="k5j-5b-zRx"/>
     </inferredMetricsTieBreakers>
 </document>

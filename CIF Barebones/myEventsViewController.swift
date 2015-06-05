@@ -18,7 +18,7 @@ class myEventsViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var myEventsTableView: UITableView!
     
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
