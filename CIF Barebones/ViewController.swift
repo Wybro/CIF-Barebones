@@ -75,6 +75,10 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
             vc.optionalHidden = false
         }
         
+        if (vc.titleText == "Location Settings") {
+            vc.locationSettingsHidden = false
+        }
+        
         return vc
     }
     

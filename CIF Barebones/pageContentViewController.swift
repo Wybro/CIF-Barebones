@@ -16,12 +16,18 @@ class pageContentViewController: UIViewController {
     @IBOutlet weak var getStartedButton: UIButton!
     @IBOutlet weak var optionalImage: UIImageView!
     
+    @IBOutlet weak var useUserLocationButton: UIButton!
+    @IBOutlet weak var userZipCodeButton: UIButton!
+    
+    
     var pageIndex: Int!
     var titleText: String!
     var pageDescription: String!
     var imageFile: String!
     var endOfSequence: Bool = true
     var optionalHidden: Bool = true
+    
+    var locationSettingsHidden: Bool = true
     
 
     override func viewDidLoad() {
@@ -32,6 +38,8 @@ class pageContentViewController: UIViewController {
         self.introTextLabel.text = self.pageDescription
         self.getStartedButton.hidden = self.endOfSequence
         self.optionalImage.hidden = self.optionalHidden
+        self.useUserLocationButton.hidden = self.locationSettingsHidden
+        self.userZipCodeButton.hidden = self.locationSettingsHidden
 
 
     }
@@ -53,6 +61,20 @@ class pageContentViewController: UIViewController {
     @IBAction func getStarted(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
+    @IBAction func useUserLocation(sender: UIButton) {
+        settingsMgr.setLocationSettings(sender.currentTitle!)
+    }
+    
+    
+    @IBAction func useZipCode(sender: UIButton) {
+        settingsMgr.setLocationSettings(sender.currentTitle!)
+    }
+    
+    
+    
+
 
 
 }

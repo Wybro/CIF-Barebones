@@ -43,6 +43,8 @@ class myAccountViewController: UIViewController {
         
 
         // Do any additional setup after loading the view.
+        
+        println("Location settings: " + settingsMgr.getLocationSettings() + "  Service Hour Amount: " + settingsMgr.getServiceHourAmount())
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -50,6 +52,8 @@ class myAccountViewController: UIViewController {
             self.performSegueWithIdentifier("signupFlow", sender: self)
             self.showSignupFlowOnce = true
         }
+        
+        println("Location settings: " + settingsMgr.getLocationSettings() + "  Service Hour Amount: " + settingsMgr.getServiceHourAmount())
     }
 
     override func didReceiveMemoryWarning() {

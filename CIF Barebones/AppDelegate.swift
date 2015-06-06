@@ -31,6 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pageController.currentPageIndicatorTintColor = cheggOrangeColor
         pageController.backgroundColor = UIColor.whiteColor()
         
+        // Tab bar settings
+        UITabBar.appearance().tintColor = cheggOrangeColor
+        
         return true
     }
 
