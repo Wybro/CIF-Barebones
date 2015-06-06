@@ -49,7 +49,8 @@ class myAccountViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         if !showSignupFlowOnce {
-            self.performSegueWithIdentifier("signupFlow", sender: self)
+//            self.performSegueWithIdentifier("signupFlow", sender: self)
+            self.performSegueWithIdentifier("newSignupFlow", sender: self)
             self.showSignupFlowOnce = true
         }
         

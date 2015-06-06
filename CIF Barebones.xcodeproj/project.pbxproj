@@ -35,6 +35,8 @@
 		2D7AF7CA1B1D42E200C2B62F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7AF7C91B1D42E200C2B62F /* Bolts.framework */; };
 		2D7E020E1B1FFC14006F053F /* myAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7E020D1B1FFC14006F053F /* myAccountViewController.swift */; };
 		2D8D09FA1B1FF3280051832E /* hoursView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D09F91B1FF3280051832E /* hoursView.swift */; };
+		2DE543921B23627E00007942 /* welcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE543911B23627E00007942 /* welcomeViewController.swift */; };
+		2DE543941B2365CF00007942 /* introLocationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE543931B2365CF00007942 /* introLocationSettingsViewController.swift */; };
 		2DE6F9581B213C700008D603 /* pageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE6F9571B213C700008D603 /* pageContentViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,8 @@
 		2D7AF7C91B1D42E200C2B62F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		2D7E020D1B1FFC14006F053F /* myAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myAccountViewController.swift; sourceTree = "<group>"; };
 		2D8D09F91B1FF3280051832E /* hoursView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hoursView.swift; sourceTree = "<group>"; };
+		2DE543911B23627E00007942 /* welcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = welcomeViewController.swift; sourceTree = "<group>"; };
+		2DE543931B2365CF00007942 /* introLocationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = introLocationSettingsViewController.swift; sourceTree = "<group>"; };
 		2DE6F9571B213C700008D603 /* pageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pageContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +147,8 @@
 				2DE6F9571B213C700008D603 /* pageContentViewController.swift */,
 				2D604C741B2292B2001BFA06 /* userSettingsManager.swift */,
 				2D723DC31B1BF28600A2F782 /* Main.storyboard */,
+				2DE543911B23627E00007942 /* welcomeViewController.swift */,
+				2DE543931B2365CF00007942 /* introLocationSettingsViewController.swift */,
 				2DA58E4E1B20F9D0002F9F48 /* My Account Tab */,
 				2DA58E4F1B20FA2E002F9F48 /* Explore Tab */,
 				2DA58E501B20FA88002F9F48 /* My Events Tab */,
@@ -336,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D723DE01B1BFF0F00A2F782 /* eventTableViewCell.swift in Sources */,
+				2DE543941B2365CF00007942 /* introLocationSettingsViewController.swift in Sources */,
 				2D723DE41B1C04D000A2F782 /* eventViewController.swift in Sources */,
 				2D7E020E1B1FFC14006F053F /* myAccountViewController.swift in Sources */,
 				2D723DC21B1BF28600A2F782 /* ViewController.swift in Sources */,
@@ -347,6 +354,7 @@
 				2D8D09FA1B1FF3280051832E /* hoursView.swift in Sources */,
 				2D723DE21B1C019600A2F782 /* eventClass.swift in Sources */,
 				2D604C751B2292B2001BFA06 /* userSettingsManager.swift in Sources */,
+				2DE543921B23627E00007942 /* welcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
