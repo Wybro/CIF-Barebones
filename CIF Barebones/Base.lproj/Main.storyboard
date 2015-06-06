@@ -351,6 +351,7 @@
                     <connections>
                         <outlet property="currentLocationButton" destination="nO1-TO-6T5" id="Tis-uE-34D"/>
                         <outlet property="moreInfoLabel" destination="Jej-lR-bcX" id="nYA-Ap-eRt"/>
+                        <outlet property="nextPageButton" destination="LpZ-ZB-PrY" id="f70-sI-ZDT"/>
                         <outlet property="zipCodeButton" destination="RDl-jE-hQg" id="HOL-ci-hub"/>
                     </connections>
                 </viewController>
@@ -361,7 +362,7 @@
         <!--Hours-->
         <scene sceneID="LwI-Ic-zVl">
             <objects>
-                <viewController id="eIF-D0-sTl" sceneMemberID="viewController">
+                <viewController id="eIF-D0-sTl" customClass="introHoursViewController" customModule="CIF_Barebones" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="azC-Gn-aGb"/>
                         <viewControllerLayoutGuide type="bottom" id="HgP-B4-MV0"/>
@@ -378,33 +379,105 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many service hours do you need?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcs-7P-e7C">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="6TZ-fj-Wig"/>
-                                    <constraint firstAttribute="width" constant="285" id="dbz-je-tJk"/>
+                                    <constraint firstAttribute="width" constant="191" id="A0j-VB-WfN"/>
+                                    <constraint firstAttribute="height" constant="47" id="d2B-Fl-hQC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="6TZ-fj-Wig"/>
-                                        <exclude reference="dbz-je-tJk"/>
+                                        <exclude reference="A0j-VB-WfN"/>
+                                        <exclude reference="d2B-Fl-hQC"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="6TZ-fj-Wig"/>
-                                        <include reference="dbz-je-tJk"/>
+                                        <include reference="A0j-VB-WfN"/>
+                                        <include reference="d2B-Fl-hQC"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of Hours" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A8y-yg-weJ">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="191" id="fTU-AA-OOS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fTU-AA-OOS"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="fTU-AA-OOS"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsm-YW-kKq">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9cg-wL-WZc"/>
+                                    <constraint firstAttribute="width" constant="170" id="GjB-l4-PTz"/>
+                                </constraints>
+                                <state key="normal" title="Done" backgroundImage="Round Button-Blank">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9cg-wL-WZc"/>
+                                        <exclude reference="GjB-l4-PTz"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="9cg-wL-WZc"/>
+                                        <include reference="GjB-l4-PTz"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="doneEnteringHours:" destination="eIF-D0-sTl" eventType="touchUpInside" id="zVw-Ur-sdH"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours can be changed later in Account Settings" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUC-GG-NGz">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="285" id="lEo-U8-5Bn"/>
+                                    <constraint firstAttribute="height" constant="47" id="oyE-Ut-RvX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="oyE-Ut-RvX"/>
+                                        <exclude reference="lEo-U8-5Bn"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="oyE-Ut-RvX"/>
+                                        <include reference="lEo-U8-5Bn"/>
                                     </mask>
                                 </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mcs-7P-e7C" firstAttribute="top" secondItem="4rT-UC-U12" secondAttribute="bottom" constant="8" id="6Pd-Yf-xkp"/>
                             <constraint firstItem="4rT-UC-U12" firstAttribute="leading" secondItem="c3p-dz-CRu" secondAttribute="trailing" constant="29" id="AKh-dy-oDr"/>
+                            <constraint firstItem="QUC-GG-NGz" firstAttribute="top" secondItem="Nsm-YW-kKq" secondAttribute="bottom" constant="8" id="Eck-Ae-cMV"/>
+                            <constraint firstAttribute="centerX" secondItem="QUC-GG-NGz" secondAttribute="centerX" constant="-0.5" id="GPA-Kk-orJ"/>
+                            <constraint firstItem="A8y-yg-weJ" firstAttribute="top" secondItem="mcs-7P-e7C" secondAttribute="bottom" constant="8" id="KSk-TT-doW"/>
                             <constraint firstItem="c3p-dz-CRu" firstAttribute="top" secondItem="azC-Gn-aGb" secondAttribute="bottom" constant="8" id="Lhh-Kz-4QG"/>
+                            <constraint firstAttribute="centerX" secondItem="Nsm-YW-kKq" secondAttribute="centerX" id="M1S-xd-dlL"/>
+                            <constraint firstAttribute="centerX" secondItem="A8y-yg-weJ" secondAttribute="centerX" constant="-0.5" id="Oda-NO-rSO"/>
                             <constraint firstAttribute="centerX" secondItem="4rT-UC-U12" secondAttribute="centerX" id="Tw6-a3-UhA"/>
-                            <constraint firstAttribute="centerX" secondItem="mcs-7P-e7C" secondAttribute="centerX" constant="-0.5" id="ciG-9y-KwE"/>
+                            <constraint firstAttribute="centerX" secondItem="mcs-7P-e7C" secondAttribute="centerX" constant="-0.5" id="YCi-LO-Si0"/>
+                            <constraint firstItem="Nsm-YW-kKq" firstAttribute="top" secondItem="A8y-yg-weJ" secondAttribute="bottom" constant="8" id="YMb-mi-Vf9"/>
+                            <constraint firstItem="mcs-7P-e7C" firstAttribute="top" secondItem="4rT-UC-U12" secondAttribute="bottom" constant="8" id="bmk-c3-gOF"/>
                             <constraint firstItem="4rT-UC-U12" firstAttribute="top" secondItem="azC-Gn-aGb" secondAttribute="bottom" constant="8" id="v8l-jJ-SU0"/>
                         </constraints>
                         <variation key="default">
@@ -412,14 +485,23 @@
                                 <exclude reference="4rT-UC-U12"/>
                                 <exclude reference="c3p-dz-CRu"/>
                                 <exclude reference="mcs-7P-e7C"/>
+                                <exclude reference="A8y-yg-weJ"/>
+                                <exclude reference="Nsm-YW-kKq"/>
+                                <exclude reference="QUC-GG-NGz"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Lhh-Kz-4QG"/>
-                                <exclude reference="6Pd-Yf-xkp"/>
-                                <exclude reference="ciG-9y-KwE"/>
+                                <exclude reference="YCi-LO-Si0"/>
+                                <exclude reference="bmk-c3-gOF"/>
                                 <exclude reference="AKh-dy-oDr"/>
                                 <exclude reference="Tw6-a3-UhA"/>
                                 <exclude reference="v8l-jJ-SU0"/>
+                                <exclude reference="KSk-TT-doW"/>
+                                <exclude reference="Oda-NO-rSO"/>
+                                <exclude reference="M1S-xd-dlL"/>
+                                <exclude reference="YMb-mi-Vf9"/>
+                                <exclude reference="Eck-Ae-cMV"/>
+                                <exclude reference="GPA-Kk-orJ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -427,18 +509,32 @@
                                 <include reference="4rT-UC-U12"/>
                                 <include reference="c3p-dz-CRu"/>
                                 <include reference="mcs-7P-e7C"/>
+                                <include reference="A8y-yg-weJ"/>
+                                <include reference="Nsm-YW-kKq"/>
+                                <include reference="QUC-GG-NGz"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Lhh-Kz-4QG"/>
-                                <include reference="6Pd-Yf-xkp"/>
-                                <include reference="ciG-9y-KwE"/>
+                                <include reference="YCi-LO-Si0"/>
+                                <include reference="bmk-c3-gOF"/>
                                 <include reference="AKh-dy-oDr"/>
                                 <include reference="Tw6-a3-UhA"/>
                                 <include reference="v8l-jJ-SU0"/>
+                                <include reference="KSk-TT-doW"/>
+                                <include reference="Oda-NO-rSO"/>
+                                <include reference="M1S-xd-dlL"/>
+                                <include reference="YMb-mi-Vf9"/>
+                                <include reference="Eck-Ae-cMV"/>
+                                <include reference="GPA-Kk-orJ"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Hours" id="oCP-6V-Ftd"/>
+                    <navigationItem key="navigationItem" title="Hours" id="oCP-6V-Ftd">
+                        <barButtonItem key="rightBarButtonItem" image="Next Arrow Icon" id="d3L-SY-bhm"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="numberOfHoursTextField" destination="A8y-yg-weJ" id="Upb-k5-UR8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bSZ-8D-xoH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

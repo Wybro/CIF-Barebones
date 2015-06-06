@@ -15,7 +15,10 @@ class introLocationSettingsViewController: UIViewController {
     @IBOutlet weak var zipCodeButton: UIButton!
     @IBOutlet weak var moreInfoLabel: UILabel!
     
-    var optionSelected: Bool = false
+    
+    
+    @IBOutlet weak var nextPageButton: UIBarButtonItem!
+//    var optionSelected: Bool = false
     
     
     override func viewDidLoad() {
@@ -26,6 +29,8 @@ class introLocationSettingsViewController: UIViewController {
         self.currentLocationButton.alpha = 0.0
         self.zipCodeButton.alpha = 0.0
         self.moreInfoLabel.alpha = 0.0
+        
+        self.nextPageButton.enabled = false
         
     }
     
@@ -54,11 +59,13 @@ class introLocationSettingsViewController: UIViewController {
     }
     
     @IBAction func useCurrentLocation(sender: UIButton) {
-        self.optionSelected = true
+        self.nextPageButton.enabled = true
+//        self.optionSelected = true
     }
     
     @IBAction func useZipCode(sender: UIButton) {
-        self.optionSelected = true
+        self.nextPageButton.enabled = true
+//        self.optionSelected = true
     }
     
     
