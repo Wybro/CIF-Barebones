@@ -22,7 +22,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         super.viewDidLoad()
 
         self.pageTitles = NSArray(objects: "Welcome", "Location Settings", "Hours", "All Done!")
-        self.pageImages = NSArray(objects: "Launch Icon", "Launch Icon", "Launch Icon", "Launch Icon")
+        self.pageImages = NSArray(objects: "Launch Icon", "Location Icon", "Clock Icon", "Done Icon")
         self.pageDescriptions = NSArray(objects: "Some congratulatory text about making the world a better place", "Your location is used to match you with nearby volunteer opportunities", "How many service hours do you need?", "That wasn't so bad!")
         
         self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("pageViewController") as! UIPageViewController
@@ -69,6 +69,10 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         
         if (vc.titleText == "All Done!") {
             vc.endOfSequence = false
+        }
+        
+        if (vc.titleText == "Hours") {
+            vc.optionalHidden = false
         }
         
         return vc

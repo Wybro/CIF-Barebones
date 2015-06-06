@@ -14,12 +14,14 @@ class pageContentViewController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var introTextLabel: UILabel!
     @IBOutlet weak var getStartedButton: UIButton!
+    @IBOutlet weak var optionalImage: UIImageView!
     
     var pageIndex: Int!
     var titleText: String!
     var pageDescription: String!
     var imageFile: String!
     var endOfSequence: Bool = true
+    var optionalHidden: Bool = true
     
 
     override func viewDidLoad() {
@@ -29,15 +31,9 @@ class pageContentViewController: UIViewController {
         self.welcomeLabel.text = self.titleText
         self.introTextLabel.text = self.pageDescription
         self.getStartedButton.hidden = self.endOfSequence
+        self.optionalImage.hidden = self.optionalHidden
 
-//        self.welcomeLabel.alpha = 0.1
-//        self.introTextLabel.alpha = 0.1
-//        UIView.animateWithDuration(1.0, animations: { () -> Void in
-//            self.welcomeLabel.alpha = 1.0
-//        })
-//        UIView.animateWithDuration(1.0, animations: { () -> Void in
-//            self.introTextLabel.alpha = 1.0
-//        })
+
     }
 
     override func didReceiveMemoryWarning() {
