@@ -59,11 +59,13 @@ class introLocationSettingsViewController: UIViewController {
     }
     
     @IBAction func useCurrentLocation(sender: UIButton) {
+        settingsMgr.setLocationSettings(sender.currentTitle!)
         self.nextPageButton.enabled = true
 //        self.optionSelected = true
     }
     
     @IBAction func useZipCode(sender: UIButton) {
+        settingsMgr.setLocationSettings(sender.currentTitle!)
         self.nextPageButton.enabled = true
 //        self.optionSelected = true
     }

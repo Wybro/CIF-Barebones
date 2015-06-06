@@ -26,6 +26,7 @@ class introHoursViewController: UIViewController {
     
     @IBAction func doneEnteringHours(sender: UIButton) {
         if numberOfHoursTextField.text.toInt() != nil {
+            settingsMgr.setServiceHour(numberOfHoursTextField.text)
             println("Success")
         }
         else {
