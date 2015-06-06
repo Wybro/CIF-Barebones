@@ -79,6 +79,10 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
             vc.locationSettingsHidden = false
         }
         
+        if (vc.titleText == "Hours") {
+            vc.serviceHoursSettingsHidden = false
+        }
+        
         return vc
     }
     

@@ -19,6 +19,8 @@ class pageContentViewController: UIViewController {
     @IBOutlet weak var useUserLocationButton: UIButton!
     @IBOutlet weak var userZipCodeButton: UIButton!
     
+    @IBOutlet weak var serviceHoursTextField: UITextField!
+    @IBOutlet weak var serviceHoursDoneButton: UIButton!
     
     var pageIndex: Int!
     var titleText: String!
@@ -29,6 +31,8 @@ class pageContentViewController: UIViewController {
     
     var locationSettingsHidden: Bool = true
     
+    var serviceHoursSettingsHidden: Bool = true
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +42,12 @@ class pageContentViewController: UIViewController {
         self.introTextLabel.text = self.pageDescription
         self.getStartedButton.hidden = self.endOfSequence
         self.optionalImage.hidden = self.optionalHidden
+        
         self.useUserLocationButton.hidden = self.locationSettingsHidden
         self.userZipCodeButton.hidden = self.locationSettingsHidden
+        
+        self.serviceHoursTextField.hidden = self.serviceHoursSettingsHidden
+        self.serviceHoursDoneButton.hidden = self.serviceHoursSettingsHidden
 
 
     }
@@ -72,6 +80,9 @@ class pageContentViewController: UIViewController {
         settingsMgr.setLocationSettings(sender.currentTitle!)
     }
     
+    @IBAction func setServiceHours(sender: UIButton) {
+        settingsMgr.setServiceHour(serviceHoursTextField.text)
+    }
     
     
 
