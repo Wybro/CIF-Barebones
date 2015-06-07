@@ -47,6 +47,7 @@ class introHoursViewController: UIViewController {
     @IBAction func doneEnteringHours(sender: UIButton) {
         if numberOfHoursTextField.text.toInt() != nil {
             settingsMgr.setServiceHour(numberOfHoursTextField.text)
+            maxAmount = numberOfHoursTextField.text.toInt()!
             println("Success")
         }
         else {

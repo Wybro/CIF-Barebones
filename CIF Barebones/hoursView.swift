@@ -8,7 +8,7 @@
 
 import UIKit
 
-let maxAmount = 100
+var maxAmount = 100
 let π: CGFloat = CGFloat(M_PI)
 
 @IBDesignable class hoursView: UIView {
@@ -20,6 +20,7 @@ let π: CGFloat = CGFloat(M_PI)
             }
         }
     }
+    
     
     @IBInspectable var outlineColor: UIColor = UIColor.blueColor()
     @IBInspectable var counterColor: UIColor = UIColor.orangeColor()

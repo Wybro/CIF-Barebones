@@ -14,7 +14,7 @@ var settingsMgr: UserSettingsManager = UserSettingsManager()
 
 class UserSettingsManager: NSObject {
     var locationSettingsType: String = ""
-    var serviceHourAmount: String = ""
+    var serviceHourAmount: String = "0"
     
     func setLocationSettings(value: String) {
         self.locationSettingsType = value

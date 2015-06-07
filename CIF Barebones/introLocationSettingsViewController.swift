@@ -66,11 +66,13 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
         self.locationManager.startUpdatingLocation()
         
         self.nextPageButton.enabled = true
+        self.zipCodeButton.enabled = false
     }
     
     @IBAction func useZipCode(sender: UIButton) {
         settingsMgr.setLocationSettings(sender.currentTitle!)
         self.nextPageButton.enabled = true
+        self.currentLocationButton.enabled = false
     }
     
     

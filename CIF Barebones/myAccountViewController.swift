@@ -19,9 +19,15 @@ class myAccountViewController: UIViewController {
 //        UIView.animateWithDuration(1, delay: 0, options: .CurveLinear, animations: {
 //            self.hoursVisual.counter++
 //            }, completion: nil)
+        println("Before:")
+        println("Max: " + maxAmount.description)
+        println("Counter: " + hoursVisual.counter.description)
         if hoursVisual.counter < maxAmount {
             hoursVisual.counter++
             hoursLabel.text = String(hoursVisual.counter)
+            println("After:")
+            println("Max: " + maxAmount.description)
+            println("Counter: " + hoursVisual.counter.description)
         }
     }
 
