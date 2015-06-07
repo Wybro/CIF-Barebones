@@ -7,19 +7,18 @@
 //
 
 import UIKit
+import CoreLocation
 
-class introLocationSettingsViewController: UIViewController {
+class introLocationSettingsViewController: UIViewController, CLLocationManagerDelegate {
     
     
     @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var zipCodeButton: UIButton!
     @IBOutlet weak var moreInfoLabel: UILabel!
     
-    
-    
     @IBOutlet weak var nextPageButton: UIBarButtonItem!
-//    var optionSelected: Bool = false
     
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +28,10 @@ class introLocationSettingsViewController: UIViewController {
         self.currentLocationButton.alpha = 0.0
         self.zipCodeButton.alpha = 0.0
         self.moreInfoLabel.alpha = 0.0
-        
         self.nextPageButton.enabled = false
+        
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
     }
     
@@ -60,14 +61,43 @@ class introLocationSettingsViewController: UIViewController {
     
     @IBAction func useCurrentLocation(sender: UIButton) {
         settingsMgr.setLocationSettings(sender.currentTitle!)
+        
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        
         self.nextPageButton.enabled = true
-//        self.optionSelected = true
     }
     
     @IBAction func useZipCode(sender: UIButton) {
         settingsMgr.setLocationSettings(sender.currentTitle!)
         self.nextPageButton.enabled = true
-//        self.optionSelected = true
+    }
+    
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: { (placemarks, error) -> Void in
+            if error != nil {
+                println("Error: " + error.localizedDescription)
+                return
+            }
+            
+            if placemarks.count > 0 {
+                let pm = placemarks[0] as! CLPlacemark
+                self.displayLocationInfo(pm)
+            }
+        })
+    }
+    
+    func displayLocationInfo(placemark: CLPlacemark) {
+        self.locationManager.stopUpdatingLocation()
+        println(placemark.locality)
+        println(placemark.postalCode)
+        println(placemark.administrativeArea)
+        println(placemark.country)
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        println("Error: " + error.localizedDescription)
     }
     
     
