@@ -21,6 +21,9 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
     @IBOutlet weak var acceptEntryButton: UIButton!
     @IBOutlet weak var cancelEntryButton: UIButton!
     @IBOutlet weak var zipCodeEntryField: UITextField!
+    @IBOutlet weak var acceptButtonFromCenter: NSLayoutConstraint!
+    @IBOutlet weak var cancelButtonFromCenter: NSLayoutConstraint!
+    
     
     
     let locationManager = CLLocationManager()
@@ -76,41 +79,117 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
     
     @IBAction func useZipCode(sender: UIButton) {
         settingsMgr.setLocationSettings(sender.currentTitle!)
-        self.nextPageButton.enabled = true
-        
         enterZipCodeMode()
     }
     
     func enterZipCodeMode() {
+        buttonFadeOut(self.currentLocationButton)
+        buttonFadeOut(self.zipCodeButton)
+        enterZipCodeAnimation()
+    }
+    
+    func exitZipCodeMode() {
+        exitZipCodeAnimation()
+        self.zipCodeEntryField.resignFirstResponder()
+    }
+    
+    func enterZipCodeAnimation() {
+        // Disable & Hide original UI objects
         self.currentLocationButton.enabled = false
         self.currentLocationButton.hidden = true
         self.zipCodeButton.hidden = true
         
+        // Reveal ZIP Code entry UI objects
         self.acceptEntryButton.hidden = false
         self.cancelEntryButton.hidden = false
         self.zipCodeEntryField.hidden = false
+        buttonFadeIn(self.acceptEntryButton)
+        buttonFadeIn(self.cancelEntryButton)
+        textFieldFadeIn(self.zipCodeEntryField)
+        
+        
+        // Animation settings
+        self.acceptButtonFromCenter.constant = 0
+        self.cancelButtonFromCenter.constant = 0
+        self.view.layoutIfNeeded()
+        self.acceptButtonFromCenter.constant = -35
+        self.cancelButtonFromCenter.constant = -35
+        UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        
     }
     
-    func exitZipCodeMode() {
-        self.zipCodeEntryField.resignFirstResponder()
-        self.acceptEntryButton.hidden = true
-        self.cancelEntryButton.hidden = true
-        self.zipCodeEntryField.hidden = true
-        
-        self.currentLocationButton.hidden = false
-        self.zipCodeButton.hidden = false
-        self.currentLocationButton.enabled = true
+    func exitZipCodeAnimation() {
+        // Animation settings
+        self.acceptButtonFromCenter.constant = -35
+        self.cancelButtonFromCenter.constant = -35
+        self.view.layoutIfNeeded()
+        self.acceptButtonFromCenter.constant = 0
+        self.cancelButtonFromCenter.constant = 0
+        UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+            self.view.layoutIfNeeded()
+            }, completion: { (complete: Bool) in
+                // Hide ZIP Code entry UI objects
+                self.acceptEntryButton.hidden = true
+                self.cancelEntryButton.hidden = true
+                self.zipCodeEntryField.hidden = true
+                
+                // Enable & Reveal original UI objects
+                self.currentLocationButton.hidden = false
+                self.zipCodeButton.hidden = false
+                self.currentLocationButton.enabled = true
+                self.buttonFadeIn(self.currentLocationButton)
+                self.buttonFadeIn(self.zipCodeButton)
+                
+        })
+
     }
     
     @IBAction func acceptZipCodeEntry(sender: UIButton) {
+        self.nextPageButton.enabled = true
         println(self.zipCodeEntryField.text)
-        
     }
     
     @IBAction func cancelZipCodeEntry(sender: UIButton) {
         exitZipCodeMode()
     }
     
+    func buttonFadeIn(sender: UIButton) {
+        sender.alpha = 0
+//        UIView.animateWithDuration(1.0, animations: { () -> Void in
+//            sender.alpha = 1.0
+//        })
+        
+        UIView.animateWithDuration(0.4, delay: 0, options: nil, animations: { () -> Void in
+            sender.alpha = 1.0
+        }, completion: nil)
+    }
+    
+    func buttonFadeOut(sender: UIButton) {
+        sender.alpha = 1.0
+//        UIView.animateWithDuration(1.0, animations: { () -> Void in
+//            sender.alpha = 0
+//        })
+        UIView.animateWithDuration(0.4, delay: 0, options: nil, animations: { () -> Void in
+            sender.alpha = 0
+            }, completion: nil)
+        
+    }
+    
+    func textFieldFadeOut(sender: UITextField) {
+        sender.alpha = 1.0
+        UIView.animateWithDuration(0.4, delay: 0, options: nil, animations: { () -> Void in
+            sender.alpha = 0
+            }, completion: nil)
+    }
+    
+    func textFieldFadeIn(sender: UITextField) {
+        sender.alpha = 0
+        UIView.animateWithDuration(0.4, delay: 0, options: nil, animations: { () -> Void in
+            sender.alpha = 1.0
+            }, completion: nil)
+    }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: { (placemarks, error) -> Void in
