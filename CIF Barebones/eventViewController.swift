@@ -43,6 +43,7 @@ class eventViewController: UIViewController {
         var placeMark: AnyObject
         var error: NSError
         var location: CLLocation = CLLocation(latitude: (selectedEventGeoPoint?.latitude)!, longitude: (selectedEventGeoPoint?.longitude)!)
+  
         geoCoder.reverseGeocodeLocation(location, completionHandler: {
             (placeMark, error) -> Void in
             if error != nil {
