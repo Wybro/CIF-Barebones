@@ -14,6 +14,9 @@ class introHoursViewController: UIViewController {
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var moreInfoLabel: UILabel!
     
+    @IBOutlet weak var successCheckImageView: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +24,7 @@ class introHoursViewController: UIViewController {
         self.numberOfHoursTextField.alpha = 0.0
         self.doneButton.alpha = 0.0
         self.moreInfoLabel.alpha = 0.0
+        self.successCheckImageView.alpha = 0.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,12 +52,27 @@ class introHoursViewController: UIViewController {
         if numberOfHoursTextField.text.toInt() != nil {
             settingsMgr.setServiceHour(numberOfHoursTextField.text)
             maxAmount = numberOfHoursTextField.text.toInt()!
+            
+            
+            self.numberOfHoursTextField.text = ""
+            
+            self.successCheckImageView.image = UIImage(named: "Success Circle Check Icon")
+            iconFade()
             println("Success")
         }
         else {
+            self.successCheckImageView.image = UIImage(named: "Error Circle Icon")
+            iconFade()
             println("Please enter a number")
         }
         
+    }
+    
+    func iconFade() {
+        self.successCheckImageView.alpha = 1.0
+        UIView.animateWithDuration(1.25, animations: { () -> Void in
+            self.successCheckImageView.alpha = 0.0
+        })
     }
     
 

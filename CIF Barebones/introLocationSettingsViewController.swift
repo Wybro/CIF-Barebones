@@ -18,6 +18,11 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
     
     @IBOutlet weak var nextPageButton: UIBarButtonItem!
     
+    @IBOutlet weak var acceptEntryButton: UIButton!
+    @IBOutlet weak var cancelEntryButton: UIButton!
+    @IBOutlet weak var zipCodeEntryField: UITextField!
+    
+    
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -72,7 +77,38 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
     @IBAction func useZipCode(sender: UIButton) {
         settingsMgr.setLocationSettings(sender.currentTitle!)
         self.nextPageButton.enabled = true
+        
+        enterZipCodeMode()
+    }
+    
+    func enterZipCodeMode() {
         self.currentLocationButton.enabled = false
+        self.currentLocationButton.hidden = true
+        self.zipCodeButton.hidden = true
+        
+        self.acceptEntryButton.hidden = false
+        self.cancelEntryButton.hidden = false
+        self.zipCodeEntryField.hidden = false
+    }
+    
+    func exitZipCodeMode() {
+        self.zipCodeEntryField.resignFirstResponder()
+        self.acceptEntryButton.hidden = true
+        self.cancelEntryButton.hidden = true
+        self.zipCodeEntryField.hidden = true
+        
+        self.currentLocationButton.hidden = false
+        self.zipCodeButton.hidden = false
+        self.currentLocationButton.enabled = true
+    }
+    
+    @IBAction func acceptZipCodeEntry(sender: UIButton) {
+        println(self.zipCodeEntryField.text)
+        
+    }
+    
+    @IBAction func cancelZipCodeEntry(sender: UIButton) {
+        exitZipCodeMode()
     }
     
     
