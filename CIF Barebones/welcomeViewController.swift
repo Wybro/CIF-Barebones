@@ -14,6 +14,11 @@ class welcomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        println("User Settings")
+        println("Location Settings: " + settingsMgr.getLocationSettings())
+        println("ZIP Code: \(settingsMgr.getZipCodeValue())")
+        println("Service Hour Amount: " + settingsMgr.getServiceHourAmount())
     }
     
     override func viewWillAppear(animated: Bool) {

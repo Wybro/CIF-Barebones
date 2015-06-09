@@ -46,7 +46,6 @@ class myAccountViewController: UIViewController {
         super.viewDidLoad()
         
         hoursLabel.text = String(hoursVisual.counter)
-        
 
         // Do any additional setup after loading the view.
         
@@ -59,8 +58,10 @@ class myAccountViewController: UIViewController {
             self.performSegueWithIdentifier("newSignupFlow", sender: self)
             self.showSignupFlowOnce = true
         }
-        
-        println("Location settings: " + settingsMgr.getLocationSettings() + "  Service Hour Amount: " + settingsMgr.getServiceHourAmount())
+        println("User Settings")
+        println("Location Settings: " + settingsMgr.getLocationSettings())
+        println("ZIP Code: \(settingsMgr.getZipCodeValue())")
+        println("Service Hour Amount: " + settingsMgr.getServiceHourAmount())
     }
 
     override func didReceiveMemoryWarning() {

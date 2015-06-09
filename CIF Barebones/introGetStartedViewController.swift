@@ -31,7 +31,7 @@ class introGetStartedViewController: UIViewController {
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) -> Void in
         }
         let restartAction: UIAlertAction = UIAlertAction(title: "Restart", style: .Destructive) { (action) -> Void in
-           settingsMgr.clearSettings()
+            settingsMgr.clearSettings()
             self.performSegueWithIdentifier("restartProfile", sender: self)
             
         }

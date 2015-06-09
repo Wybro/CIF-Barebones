@@ -28,6 +28,8 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
     @IBOutlet weak var zipCodeAddressLabel: UILabel!
     @IBOutlet weak var successCheckImageView: UIImageView!
     
+    @IBOutlet weak var geocodeActivityIndicator: UIActivityIndicatorView!
+    
     let locationManager = CLLocationManager()
     
     //MARK: View & Misc Methods
@@ -103,18 +105,16 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
     }
     
     @IBAction func acceptZipCodeEntry(sender: UIButton) {
-        self.nextPageButton.enabled = true
-        println(self.zipCodeEntryField.text)
         // check to ensure not empty and only five numbers
         if (self.zipCodeEntryField.text != "" && self.zipCodeEntryField.text.toInt() != nil && count(self.zipCodeEntryField.text) == 5) {
             self.successCheckImageView.image = UIImage(named: "Success Circle Check Icon")
+            self.geocodeActivityIndicator.startAnimating()
             lookUpZipCode(self.zipCodeEntryField.text)
         }
         else {
             self.successCheckImageView.image = UIImage(named: "Error Circle Icon")
             iconFade()
         }
-
     }
     
     @IBAction func cancelZipCodeEntry(sender: UIButton) {
@@ -256,6 +256,7 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
                 println("Error: \(error.localizedDescription)")
                 return
             }
+            // Search was successful & has results
             if placeMark.count > 0 {
                 let pm = placeMark[0] as! CLPlacemark
                 println("Name: " + pm.name)
@@ -264,9 +265,15 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
                 println("Postal Code: " + pm.postalCode)
                 
                 addressString = pm.locality + ", " + pm.administrativeArea
+                
+                self.geocodeActivityIndicator.stopAnimating()
+                
                 self.zipCodeAddressLabel.hidden = false
                 self.zipCodeAddressLabel.text = addressString
+                settingsMgr.setZipCodeValue(code)
+                self.nextPageButton.enabled = true
                 self.iconFade()
+                
             }
             else {
                 println("Error with data")
