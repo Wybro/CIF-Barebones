@@ -32,4 +32,8 @@ class UserSettingsManager: NSObject {
         return self.serviceHourAmount
     }
     
+    func clearSettings() {
+        self.locationSettingsType = ""
+        self.serviceHourAmount = "0"
+    }
 }

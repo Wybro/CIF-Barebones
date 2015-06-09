@@ -12,7 +12,7 @@ import MapKit
 
 class introLocationSettingsViewController: UIViewController, CLLocationManagerDelegate {
     
-    
+    //MARK: UI Elements
     @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var zipCodeButton: UIButton!
     @IBOutlet weak var moreInfoLabel: UILabel!
@@ -28,9 +28,9 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
     @IBOutlet weak var zipCodeAddressLabel: UILabel!
     @IBOutlet weak var successCheckImageView: UIImageView!
     
-    
     let locationManager = CLLocationManager()
     
+    //MARK: View & Misc Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,7 +52,6 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
         self.navigationController?.navigationBarHidden = false
     }
     
-    
     override func viewDidAppear(animated: Bool) {
         UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
             self.currentLocationButton.alpha = 1.0
@@ -72,6 +71,7 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: UI Buttons
     @IBAction func useCurrentLocation(sender: UIButton) {
         settingsMgr.setLocationSettings(sender.currentTitle!)
         
@@ -102,7 +102,28 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
         self.zipCodeEntryField.resignFirstResponder()
     }
     
-    func enterZipCodeAnimation() {        
+    @IBAction func acceptZipCodeEntry(sender: UIButton) {
+        self.nextPageButton.enabled = true
+        println(self.zipCodeEntryField.text)
+        // check to ensure not empty and only five numbers
+        if (self.zipCodeEntryField.text != "" && self.zipCodeEntryField.text.toInt() != nil && count(self.zipCodeEntryField.text) == 5) {
+            self.successCheckImageView.image = UIImage(named: "Success Circle Check Icon")
+            lookUpZipCode(self.zipCodeEntryField.text)
+        }
+        else {
+            self.successCheckImageView.image = UIImage(named: "Error Circle Icon")
+            iconFade()
+        }
+
+    }
+    
+    @IBAction func cancelZipCodeEntry(sender: UIButton) {
+        self.zipCodeEntryField.text = ""
+        exitZipCodeMode()
+    }
+    
+    // MARK: Animation Methods
+    func enterZipCodeAnimation() {
         // Animation settings
         self.acceptButtonFromCenter.constant = 0
         self.cancelButtonFromCenter.constant = 0
@@ -123,7 +144,7 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
             self.acceptEntryButton.alpha = 1
             self.cancelEntryButton.alpha = 1
             self.zipCodeEntryField.alpha = 1
-        }, completion: nil)
+            }, completion: nil)
         
     }
     
@@ -156,27 +177,7 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
                 self.buttonFadeIn(self.zipCodeButton)
         })
     }
-    
-    @IBAction func acceptZipCodeEntry(sender: UIButton) {
-        self.nextPageButton.enabled = true
-        println(self.zipCodeEntryField.text)
-        // check to ensure not empty and only five numbers
-        if (self.zipCodeEntryField.text != "" && self.zipCodeEntryField.text.toInt() != nil && count(self.zipCodeEntryField.text) == 5) {
-            self.successCheckImageView.image = UIImage(named: "Success Circle Check Icon")
-            lookUpZipCode(self.zipCodeEntryField.text)
-        }
-        else {
-            self.successCheckImageView.image = UIImage(named: "Error Circle Icon")
-            iconFade()
-        }
 
-    }
-    
-    @IBAction func cancelZipCodeEntry(sender: UIButton) {
-        self.zipCodeEntryField.text = ""
-        exitZipCodeMode()
-    }
-    
     func buttonFadeIn(sender: UIButton) {
         sender.alpha = 0
         sender.hidden = false
@@ -211,6 +212,14 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
         })
     }
     
+    func iconFade() {
+        self.successCheckImageView.alpha = 1.0
+        UIView.animateWithDuration(1.25, animations: { () -> Void in
+            self.successCheckImageView.alpha = 0.0
+        })
+    }
+    
+    //MARK: Location Methods
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: { (placemarks, error) -> Void in
             if error != nil {
@@ -265,12 +274,6 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
             }
         })
     }
-    
-    func iconFade() {
-        self.successCheckImageView.alpha = 1.0
-        UIView.animateWithDuration(1.25, animations: { () -> Void in
-            self.successCheckImageView.alpha = 0.0
-        })
-    }
+
 
 }

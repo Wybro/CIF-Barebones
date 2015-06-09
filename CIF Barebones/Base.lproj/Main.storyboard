@@ -72,7 +72,7 @@
                                     <constraint firstAttribute="width" constant="170" id="2Co-wY-Ah5"/>
                                     <constraint firstAttribute="height" constant="50" id="Kdm-K1-WjF"/>
                                 </constraints>
-                                <state key="normal" title="create account" backgroundImage="Round Button-Blank">
+                                <state key="normal" title="create account" backgroundImage="Round Button-Blank-Orange">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -98,7 +98,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="Fef-Pe-tWL"/>
                                     <constraint firstAttribute="width" constant="170" id="XmH-WI-FSv"/>
                                 </constraints>
-                                <state key="normal" title="login" backgroundImage="Round Button-Blank">
+                                <state key="normal" title="login" backgroundImage="Round Button-Blank-Orange">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -217,7 +217,7 @@
                                     <constraint firstAttribute="height" constant="50" id="C3f-UQ-NCZ"/>
                                     <constraint firstAttribute="width" constant="170" id="VSD-tW-Hwz"/>
                                 </constraints>
-                                <state key="normal" title="Use Current Location" backgroundImage="Round Button-Blank">
+                                <state key="normal" title="Use Current Location" backgroundImage="Round Button-Blank-Orange">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -265,7 +265,7 @@
                                     <constraint firstAttribute="width" constant="170" id="KxL-SN-zgh"/>
                                     <constraint firstAttribute="height" constant="50" id="VfY-yl-eJp"/>
                                 </constraints>
-                                <state key="normal" title="Use ZIP Code" backgroundImage="Round Button-Blank">
+                                <state key="normal" title="Use ZIP Code" backgroundImage="Round Button-Blank-Orange">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -587,7 +587,7 @@
                                     <constraint firstAttribute="height" constant="50" id="9cg-wL-WZc"/>
                                     <constraint firstAttribute="width" constant="170" id="GjB-l4-PTz"/>
                                 </constraints>
-                                <state key="normal" title="Done" backgroundImage="Round Button-Blank">
+                                <state key="normal" title="Done" backgroundImage="Round Button-Blank-Orange">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -804,7 +804,7 @@
                                     <constraint firstAttribute="height" constant="50" id="KvP-tW-Zjo"/>
                                     <constraint firstAttribute="width" constant="170" id="mjV-bq-hJO"/>
                                 </constraints>
-                                <state key="normal" title="Create Profile" backgroundImage="Round Button-Blank">
+                                <state key="normal" title="Create Profile" backgroundImage="Round Button-Blank-Orange">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -824,12 +824,40 @@
                                     <action selector="createProfile:" destination="af0-Xa-J07" eventType="touchUpInside" id="k58-Qh-NKG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JjB-r0-Ls4">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="1iz-aX-Icv"/>
+                                    <constraint firstAttribute="height" constant="50" id="cV0-gq-Dfa"/>
+                                </constraints>
+                                <state key="normal" title="Restart" backgroundImage="Round Button-Blank-Red">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1iz-aX-Icv"/>
+                                        <exclude reference="cV0-gq-Dfa"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="1iz-aX-Icv"/>
+                                        <include reference="cV0-gq-Dfa"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="restartProfile:" destination="af0-Xa-J07" eventType="touchUpInside" id="4dX-gw-Dvn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="T4k-s2-wy6" secondAttribute="centerX" constant="-0.5" id="3dm-gg-vIN"/>
                             <constraint firstAttribute="centerX" secondItem="4hH-kQ-jho" secondAttribute="centerX" id="CBI-1U-VyZ"/>
                             <constraint firstAttribute="centerX" secondItem="Zr5-oY-eu5" secondAttribute="centerX" id="Fhy-r4-hRJ"/>
+                            <constraint firstAttribute="centerX" secondItem="JjB-r0-Ls4" secondAttribute="centerX" id="Hkb-KA-EhS"/>
+                            <constraint firstItem="JjB-r0-Ls4" firstAttribute="top" secondItem="4hH-kQ-jho" secondAttribute="bottom" constant="8" id="M3i-xf-zDM"/>
                             <constraint firstItem="T4k-s2-wy6" firstAttribute="top" secondItem="mcG-OV-KDP" secondAttribute="bottom" constant="8" id="NWj-gd-TJ1"/>
                             <constraint firstItem="Zr5-oY-eu5" firstAttribute="top" secondItem="IQc-P6-cYK" secondAttribute="bottom" constant="8" id="Tu9-NG-fme"/>
                             <constraint firstAttribute="centerX" secondItem="mcG-OV-KDP" secondAttribute="centerX" constant="-0.5" id="Y8p-DF-9Uz"/>
@@ -842,16 +870,19 @@
                                 <exclude reference="mcG-OV-KDP"/>
                                 <exclude reference="T4k-s2-wy6"/>
                                 <exclude reference="4hH-kQ-jho"/>
+                                <exclude reference="JjB-r0-Ls4"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Fhy-r4-hRJ"/>
+                                <exclude reference="Tu9-NG-fme"/>
                                 <exclude reference="3dm-gg-vIN"/>
                                 <exclude reference="NWj-gd-TJ1"/>
                                 <exclude reference="Y8p-DF-9Uz"/>
                                 <exclude reference="xh1-Vq-hEf"/>
                                 <exclude reference="CBI-1U-VyZ"/>
                                 <exclude reference="nnc-gw-qhU"/>
-                                <exclude reference="Fhy-r4-hRJ"/>
-                                <exclude reference="Tu9-NG-fme"/>
+                                <exclude reference="Hkb-KA-EhS"/>
+                                <exclude reference="M3i-xf-zDM"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -860,20 +891,26 @@
                                 <include reference="mcG-OV-KDP"/>
                                 <include reference="T4k-s2-wy6"/>
                                 <include reference="4hH-kQ-jho"/>
+                                <include reference="JjB-r0-Ls4"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Fhy-r4-hRJ"/>
+                                <include reference="Tu9-NG-fme"/>
                                 <include reference="3dm-gg-vIN"/>
                                 <include reference="NWj-gd-TJ1"/>
                                 <include reference="Y8p-DF-9Uz"/>
                                 <include reference="xh1-Vq-hEf"/>
                                 <include reference="CBI-1U-VyZ"/>
                                 <include reference="nnc-gw-qhU"/>
-                                <include reference="Fhy-r4-hRJ"/>
-                                <include reference="Tu9-NG-fme"/>
+                                <include reference="Hkb-KA-EhS"/>
+                                <include reference="M3i-xf-zDM"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Get Started" id="IIX-7j-vCn"/>
+                    <connections>
+                        <segue destination="ruV-zh-Ssf" kind="show" identifier="restartProfile" id="5tM-Tp-yIe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yCU-kH-csN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2024,7 +2061,7 @@
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Requirements &amp; Commitment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqo-RO-7dv">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <color key="backgroundColor" red="0.37529721469999999" green="0.75059442929999998" blue="0.71079017929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -2049,7 +2086,7 @@
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5X7-To-NQf">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <color key="backgroundColor" red="0.37529721469999999" green="0.75059442929999998" blue="0.71079017929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -2188,6 +2225,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Event" id="zIu-hO-v6s">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="yLZ-29-Rq5">
+                            <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="showActionSheet:" destination="4SG-mj-16Y" id="QEE-I4-hch"/>
                             </connections>
@@ -2468,6 +2506,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Event" id="Jec-nT-rRz">
                         <barButtonItem key="rightBarButtonItem" image="Calendar" id="t1n-N5-F6O">
+                            <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="showCalendarActionSheet:" destination="PKe-Ta-BHs" id="3DJ-i2-0cE"/>
                             </connections>
@@ -2595,11 +2634,13 @@
         <image name="Next Arrow Icon" width="22" height="22"/>
         <image name="Optional Icon" width="110" height="25"/>
         <image name="Pin" width="80" height="90"/>
-        <image name="Round Button-Blank" width="170" height="50"/>
+        <image name="Round Button-Blank-Orange" width="170" height="50"/>
+        <image name="Round Button-Blank-Red" width="170" height="50"/>
         <image name="Settings" width="22" height="22"/>
         <image name="Success Circle Check Icon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="SaW-oq-D6E"/>
+        <segue reference="5tM-Tp-yIe"/>
     </inferredMetricsTieBreakers>
 </document>
