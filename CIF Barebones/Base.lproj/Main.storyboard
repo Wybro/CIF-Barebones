@@ -2599,7 +2599,7 @@
         <scene sceneID="yYH-2k-HFY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EZ2-Q1-4pc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="House" id="W5V-2X-mec"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="House Line" id="W5V-2X-mec"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GzJ-Ss-rPz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -3169,7 +3169,7 @@
         <image name="Decline Icon" width="50" height="50"/>
         <image name="Explore" width="22" height="22"/>
         <image name="Hamburger" width="22" height="22"/>
-        <image name="House" width="22" height="22"/>
+        <image name="House Line" width="22" height="22"/>
         <image name="Intro Circle Check Icon" width="90" height="90"/>
         <image name="Intro Clock Icon" width="90" height="90"/>
         <image name="Intro Location Icon" width="90" height="90"/>
