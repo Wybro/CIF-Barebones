@@ -1,32 +1,29 @@
 //
-//  introHoursViewController.swift
+//  serviceHoursViewController.swift
 //  CIF Barebones
 //
-//  Created by Connor Wybranowski on 6/6/15.
+//  Created by Connor Wybranowski on 6/9/15.
 //  Copyright (c) 2015 Wybro. All rights reserved.
 //
 
 import UIKit
 
-class introHoursViewController: UIViewController {
+class serviceHoursViewController: UIViewController {
     
     @IBOutlet weak var numberOfHoursTextField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var moreInfoLabel: UILabel!
-    
     @IBOutlet weak var successCheckImageView: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.numberOfHoursTextField.alpha = 0.0
         self.doneButton.alpha = 0.0
-        self.moreInfoLabel.alpha = 0.0
         self.successCheckImageView.alpha = 0.0
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,9 +38,6 @@ class introHoursViewController: UIViewController {
             self.doneButton.alpha = 1.0
             }, completion: nil)
         
-        UIView.animateWithDuration(0.5, delay: 0.50, options: .CurveEaseOut, animations: { () -> Void in
-            self.moreInfoLabel.alpha = 1.0
-            }, completion: nil)
     }
     
     
@@ -51,8 +45,6 @@ class introHoursViewController: UIViewController {
     @IBAction func doneEnteringHours(sender: UIButton) {
         if numberOfHoursTextField.text.toInt() != nil {
             settingsMgr.setServiceHour(numberOfHoursTextField.text)
-//            maxAmount = numberOfHoursTextField.text.toInt()!
-            
             
             self.numberOfHoursTextField.text = ""
             
@@ -74,7 +66,6 @@ class introHoursViewController: UIViewController {
             self.successCheckImageView.alpha = 0.0
         })
     }
-    
 
 
 }

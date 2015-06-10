@@ -49,15 +49,19 @@ class myAccountViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        println("Location settings: " + settingsMgr.getLocationSettings() + "  Service Hour Amount: " + settingsMgr.getServiceHourAmount())
     }
     
     override func viewDidAppear(animated: Bool) {
         if !showSignupFlowOnce {
-//            self.performSegueWithIdentifier("signupFlow", sender: self)
             self.performSegueWithIdentifier("newSignupFlow", sender: self)
             self.showSignupFlowOnce = true
         }
+        
+        // Update hours visual if necessary
+        if (hoursVisual.counter <= maxAmount){
+            hoursVisual.setNeedsDisplay()
+        }
+        
         println("User Settings")
         println("Location Settings: " + settingsMgr.getLocationSettings())
         println("ZIP Code: \(settingsMgr.getZipCodeValue())")

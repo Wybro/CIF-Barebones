@@ -27,6 +27,8 @@ class UserSettingsManager: NSObject {
     
     func setServiceHour(value: String) {
         self.serviceHourAmount = value
+        // Change hours for hours graphics
+        maxAmount = value.toInt()!
     }
     
     func getLocationSettings() -> String {
