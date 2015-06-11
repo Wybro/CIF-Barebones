@@ -24,6 +24,10 @@ class exploreViewController: UIViewController, UITableViewDataSource {
         loadData()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        self.eventsList.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -86,23 +90,7 @@ class exploreViewController: UIViewController, UITableViewDataSource {
         
         cell.titleOfEvent.text = selectedEvent.getTitle()
         cell.locationOfEvent.text = selectedEvent.getLocation()
-//        cell.distanceFromLocation.text = findDistance(settingsMgr.getCurrentLocationValue(), eventLocation: CLLocation(latitude: selectedEvent.getGeoPoint().latitude, longitude: selectedEvent.getGeoPoint().longitude))
         cell.distanceFromLocation.text = findDistance(settingsMgr.getCurrentLocationValue(), eventLocation: selectedEvent.getLocationCoordinates())
-        
-//        var distanceFromLocation = findDistance(settingsMgr.getCurrentLocationValue(), eventLocation: CLLocation(latitude: selectedEvent.getGeoPoint().latitude, longitude: selectedEvent.getGeoPoint().longitude))
-//        
-//        // Meters to miles conversion
-//        var distanceInMiles = distanceFromLocation / 1609.34
-//        
-//        // Determine best number to display
-//        if distanceInMiles < 100 {
-//            var displayDistance = String.localizedStringWithFormat("%.2f", distanceInMiles)
-//            cell.distanceFromLocation.text = displayDistance
-//        }
-//        else {
-//            var displayDistance = Int(floor(distanceFromLocation / 1609.34))
-//            cell.distanceFromLocation.text = displayDistance.description
-//        }
         
         return cell
     }
