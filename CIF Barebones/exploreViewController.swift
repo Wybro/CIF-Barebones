@@ -41,7 +41,9 @@ class exploreViewController: UIViewController, UITableViewDataSource {
                     let eventBio = event["bio"] as! String
                     let eventReqs = event["requirements"] as! String
 //                    let newEvent: Event = Event(eventTitle: eventTitle, eventLocation: eventLocation, eventBio: eventBio, eventReq: eventReqs)
-                    let newEvent: Event = Event(eventTitle: eventTitle, eventLocation: eventLocation, geoLocation: eventGeoPoint, eventBio: eventBio, eventReq: eventReqs)
+                    let eventLocationCoords: CLLocation = CLLocation(latitude: eventGeoPoint.latitude, longitude: eventGeoPoint.longitude)
+                    
+                    let newEvent: Event = Event(eventTitle: eventTitle, eventLocation: eventLocation, geoLocation: eventGeoPoint, coords: eventLocationCoords, eventBio: eventBio, eventReq: eventReqs)
                     
                     if !self.eventData.containsObject(newEvent){
                         self.eventData.addObject(newEvent)
@@ -56,7 +58,21 @@ class exploreViewController: UIViewController, UITableViewDataSource {
         }
     }
     
-      
+    func findDistance(userLocation: CLLocation, eventLocation: CLLocation) -> String {
+        var distanceFromLocation = userLocation.distanceFromLocation(eventLocation)
+        // Meters to miles conversion
+        var distanceInMiles = distanceFromLocation / 1609.34
+        // Determine best number to display
+        if distanceInMiles < 100 {
+            var displayDistance = String.localizedStringWithFormat("%.2f", distanceInMiles)
+            return displayDistance
+        }
+        else {
+            var displayDistance = Int(floor(distanceFromLocation / 1609.34))
+            return displayDistance.description
+        }
+
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return eventData.count
@@ -65,8 +81,29 @@ class exploreViewController: UIViewController, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! eventTableViewCell
-        cell.titleOfEvent.text = (eventData[indexPath.row] as! Event).getTitle()
-        cell.locationOfEvent.text = (eventData[indexPath.row] as! Event).getLocation()
+        
+        var selectedEvent: Event = self.eventData[indexPath.row] as! Event
+        
+        cell.titleOfEvent.text = selectedEvent.getTitle()
+        cell.locationOfEvent.text = selectedEvent.getLocation()
+//        cell.distanceFromLocation.text = findDistance(settingsMgr.getCurrentLocationValue(), eventLocation: CLLocation(latitude: selectedEvent.getGeoPoint().latitude, longitude: selectedEvent.getGeoPoint().longitude))
+        cell.distanceFromLocation.text = findDistance(settingsMgr.getCurrentLocationValue(), eventLocation: selectedEvent.getLocationCoordinates())
+        
+//        var distanceFromLocation = findDistance(settingsMgr.getCurrentLocationValue(), eventLocation: CLLocation(latitude: selectedEvent.getGeoPoint().latitude, longitude: selectedEvent.getGeoPoint().longitude))
+//        
+//        // Meters to miles conversion
+//        var distanceInMiles = distanceFromLocation / 1609.34
+//        
+//        // Determine best number to display
+//        if distanceInMiles < 100 {
+//            var displayDistance = String.localizedStringWithFormat("%.2f", distanceInMiles)
+//            cell.distanceFromLocation.text = displayDistance
+//        }
+//        else {
+//            var displayDistance = Int(floor(distanceFromLocation / 1609.34))
+//            cell.distanceFromLocation.text = displayDistance.description
+//        }
+        
         return cell
     }
 
@@ -79,6 +116,7 @@ class exploreViewController: UIViewController, UITableViewDataSource {
             destViewController.selectedEventTitle = selectedEvent.getTitle()
             destViewController.selectedEventLocation = selectedEvent.getLocation()
             destViewController.selectedEventGeoPoint = selectedEvent.getGeoPoint()
+            destViewController.selectedEventDistanceAway = findDistance(settingsMgr.currentLocation, eventLocation: selectedEvent.getLocationCoordinates())
             destViewController.selectedEventBio = selectedEvent.getBio()
             destViewController.selectedEventRequirements = selectedEvent.getRequirements()
         }

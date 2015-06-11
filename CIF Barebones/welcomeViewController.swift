@@ -18,6 +18,7 @@ class welcomeViewController: UIViewController {
         println("User Settings")
         println("Location Settings: " + settingsMgr.getLocationSettings())
         println("ZIP Code: \(settingsMgr.getZipCodeValue())")
+        println("Current Location: \(settingsMgr.getCurrentLocationValue())")
         println("Service Hour Amount: " + settingsMgr.getServiceHourAmount())
     }
     

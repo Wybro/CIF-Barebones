@@ -13,7 +13,7 @@ class eventTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleOfEvent: UILabel!
     @IBOutlet weak var locationOfEvent: UILabel!
-    
+    @IBOutlet weak var distanceFromLocation: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

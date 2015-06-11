@@ -13,6 +13,7 @@ class Event {
     var title: String
     var location: String
     var geoPoint: PFGeoPoint
+    var locationCoords: CLLocation
     var bio: String
     var requirements: String
     
@@ -24,10 +25,11 @@ class Event {
 //        self.requirements = eventReq
 //    }
     
-    init(eventTitle: String, eventLocation: String, geoLocation: PFGeoPoint, eventBio: String, eventReq: String){
+    init(eventTitle: String, eventLocation: String, geoLocation: PFGeoPoint, coords: CLLocation, eventBio: String, eventReq: String){
         self.title = eventTitle
         self.location = eventLocation
         self.geoPoint = geoLocation
+        self.locationCoords = coords
         self.bio = eventBio
         self.requirements = eventReq
     }
@@ -43,6 +45,10 @@ class Event {
     
     func getGeoPoint() -> PFGeoPoint {
         return self.geoPoint
+    }
+    
+    func getLocationCoordinates() -> CLLocation {
+        return self.locationCoords
     }
     
     func getBio() -> String {

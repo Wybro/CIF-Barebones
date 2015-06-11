@@ -15,6 +15,7 @@ class eventViewController: UIViewController {
     var selectedEventTitle: String?
     var selectedEventLocation: String?
     var selectedEventGeoPoint: PFGeoPoint?
+    var selectedEventDistanceAway: String?
     var selectedEventBio: String?
     var selectedEventRequirements: String?
     
@@ -23,6 +24,7 @@ class eventViewController: UIViewController {
     @IBOutlet weak var eventBio: UITextView!
     @IBOutlet weak var eventRequirements: UITextView!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var milesAwayLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -31,7 +33,7 @@ class eventViewController: UIViewController {
         
         self.eventTitle.text = selectedEventTitle
         self.eventLocation.text = selectedEventLocation
-        
+        self.milesAwayLabel.text = selectedEventDistanceAway
         self.eventBio.text = selectedEventBio
         self.eventBio.scrollRangeToVisible(NSMakeRange(0, 0))
         self.eventRequirements.text = selectedEventRequirements

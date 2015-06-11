@@ -230,6 +230,12 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
             if placemarks.count > 0 {
                 let pm = placemarks[0] as! CLPlacemark
                 self.displayLocationInfo(pm)
+                // Set user's current location
+                let currentLocation: CLLocation = pm.location
+                settingsMgr.setCurrentLocationValue(currentLocation)
+//                println("Latitude: \(currentLocation.coordinate.latitude)")
+//                println("Longitude: \(currentLocation.coordinate.longitude)")
+                
             }
         })
     }
@@ -263,6 +269,14 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
                 println("City: " + pm.locality)
                 println("State: " + pm.administrativeArea)
                 println("Postal Code: " + pm.postalCode)
+                
+                // Get current location - latitude & longitude
+                let currentLocation: CLLocation = pm.location
+                // Set user's current location
+                settingsMgr.setCurrentLocationValue(currentLocation)
+                
+//                println("Latitude: \(currentLocation.coordinate.latitude)")
+//                println("Longitude: \(currentLocation.coordinate.longitude)")
                 
                 addressString = pm.locality + ", " + pm.administrativeArea
                 
