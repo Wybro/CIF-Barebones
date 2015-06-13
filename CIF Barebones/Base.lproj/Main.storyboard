@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -409,7 +410,9 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="RDl-jE-hQg" secondAttribute="centerX" id="0mD-zw-jHE"/>
                             <constraint firstAttribute="centerX" secondItem="q5S-e7-Dnb" secondAttribute="centerX" id="2AJ-Gk-ij2"/>
-                            <constraint firstItem="nO1-TO-6T5" firstAttribute="top" secondItem="mDx-ax-5mF" secondAttribute="bottom" constant="44" id="41S-5K-nZ2"/>
+                            <constraint firstItem="nO1-TO-6T5" firstAttribute="top" secondItem="mDx-ax-5mF" secondAttribute="bottom" constant="44" id="41S-5K-nZ2">
+                                <variation key="widthClass=compact" constant="18"/>
+                            </constraint>
                             <constraint firstItem="RDl-jE-hQg" firstAttribute="leading" secondItem="2aW-W9-GmL" secondAttribute="trailing" constant="-75" id="46q-lG-Bhd"/>
                             <constraint firstAttribute="centerX" secondItem="V1Q-D6-QDS" secondAttribute="centerX" id="F5z-aA-ZOb"/>
                             <constraint firstItem="2aW-W9-GmL" firstAttribute="centerY" secondItem="RDl-jE-hQg" secondAttribute="centerY" id="GMq-7S-FVk"/>
@@ -557,9 +560,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Intro Clock Icon" translatesAutoresizingMaskIntoConstraints="NO" id="4rT-UC-U12">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Optional Icon" translatesAutoresizingMaskIntoConstraints="NO" id="c3p-dz-CRu">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many service hours do you need?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcs-7P-e7C">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
@@ -667,10 +667,25 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Optional Icon" translatesAutoresizingMaskIntoConstraints="NO" id="c3p-dz-CRu">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="c3p-dz-CRu" secondAttribute="height" multiplier="22:5" id="3BT-qg-kT8"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3BT-qg-kT8"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="3BT-qg-kT8"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4rT-UC-U12" firstAttribute="leading" secondItem="c3p-dz-CRu" secondAttribute="trailing" constant="29" id="AKh-dy-oDr"/>
                             <constraint firstItem="SQV-46-wyN" firstAttribute="top" secondItem="mcs-7P-e7C" secondAttribute="bottom" constant="8" id="B1g-2G-tdr"/>
                             <constraint firstItem="QUC-GG-NGz" firstAttribute="top" secondItem="Nsm-YW-kKq" secondAttribute="bottom" constant="8" id="Eck-Ae-cMV"/>
                             <constraint firstItem="SQV-46-wyN" firstAttribute="leading" secondItem="A8y-yg-weJ" secondAttribute="trailing" constant="17" id="F7F-6P-xgw"/>
@@ -679,6 +694,7 @@
                             <constraint firstItem="c3p-dz-CRu" firstAttribute="top" secondItem="azC-Gn-aGb" secondAttribute="bottom" constant="8" id="Lhh-Kz-4QG"/>
                             <constraint firstAttribute="centerX" secondItem="Nsm-YW-kKq" secondAttribute="centerX" id="M1S-xd-dlL"/>
                             <constraint firstAttribute="centerX" secondItem="A8y-yg-weJ" secondAttribute="centerX" constant="-0.5" id="Oda-NO-rSO"/>
+                            <constraint firstItem="c3p-dz-CRu" firstAttribute="leading" secondItem="W10-dH-03j" secondAttribute="leadingMargin" id="PcH-VF-udp"/>
                             <constraint firstAttribute="centerX" secondItem="4rT-UC-U12" secondAttribute="centerX" id="Tw6-a3-UhA"/>
                             <constraint firstAttribute="centerX" secondItem="mcs-7P-e7C" secondAttribute="centerX" constant="-0.5" id="YCi-LO-Si0"/>
                             <constraint firstItem="Nsm-YW-kKq" firstAttribute="top" secondItem="A8y-yg-weJ" secondAttribute="bottom" constant="8" id="YMb-mi-Vf9"/>
@@ -688,55 +704,55 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="4rT-UC-U12"/>
-                                <exclude reference="c3p-dz-CRu"/>
                                 <exclude reference="mcs-7P-e7C"/>
                                 <exclude reference="A8y-yg-weJ"/>
                                 <exclude reference="Nsm-YW-kKq"/>
                                 <exclude reference="QUC-GG-NGz"/>
                                 <exclude reference="SQV-46-wyN"/>
+                                <exclude reference="c3p-dz-CRu"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="KSk-TT-doW"/>
-                                <exclude reference="Oda-NO-rSO"/>
-                                <exclude reference="Eck-Ae-cMV"/>
-                                <exclude reference="GPA-Kk-orJ"/>
+                                <exclude reference="Lhh-Kz-4QG"/>
+                                <exclude reference="PcH-VF-udp"/>
                                 <exclude reference="YCi-LO-Si0"/>
                                 <exclude reference="bmk-c3-gOF"/>
-                                <exclude reference="M1S-xd-dlL"/>
-                                <exclude reference="YMb-mi-Vf9"/>
-                                <exclude reference="AKh-dy-oDr"/>
                                 <exclude reference="Tw6-a3-UhA"/>
                                 <exclude reference="v8l-jJ-SU0"/>
+                                <exclude reference="KSk-TT-doW"/>
+                                <exclude reference="Oda-NO-rSO"/>
+                                <exclude reference="M1S-xd-dlL"/>
+                                <exclude reference="YMb-mi-Vf9"/>
+                                <exclude reference="Eck-Ae-cMV"/>
+                                <exclude reference="GPA-Kk-orJ"/>
                                 <exclude reference="B1g-2G-tdr"/>
                                 <exclude reference="F7F-6P-xgw"/>
-                                <exclude reference="Lhh-Kz-4QG"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="4rT-UC-U12"/>
-                                <include reference="c3p-dz-CRu"/>
                                 <include reference="mcs-7P-e7C"/>
                                 <include reference="A8y-yg-weJ"/>
                                 <include reference="Nsm-YW-kKq"/>
                                 <include reference="QUC-GG-NGz"/>
                                 <include reference="SQV-46-wyN"/>
+                                <include reference="c3p-dz-CRu"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="KSk-TT-doW"/>
-                                <include reference="Oda-NO-rSO"/>
-                                <include reference="Eck-Ae-cMV"/>
-                                <include reference="GPA-Kk-orJ"/>
+                                <include reference="Lhh-Kz-4QG"/>
+                                <include reference="PcH-VF-udp"/>
                                 <include reference="YCi-LO-Si0"/>
                                 <include reference="bmk-c3-gOF"/>
-                                <include reference="M1S-xd-dlL"/>
-                                <include reference="YMb-mi-Vf9"/>
-                                <include reference="AKh-dy-oDr"/>
                                 <include reference="Tw6-a3-UhA"/>
                                 <include reference="v8l-jJ-SU0"/>
+                                <include reference="KSk-TT-doW"/>
+                                <include reference="Oda-NO-rSO"/>
+                                <include reference="M1S-xd-dlL"/>
+                                <include reference="YMb-mi-Vf9"/>
+                                <include reference="Eck-Ae-cMV"/>
+                                <include reference="GPA-Kk-orJ"/>
                                 <include reference="B1g-2G-tdr"/>
                                 <include reference="F7F-6P-xgw"/>
-                                <include reference="Lhh-Kz-4QG"/>
                             </mask>
                         </variation>
                     </view>
@@ -3148,7 +3164,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="ivc-nR-J4P" secondAttribute="centerX" id="1Q9-4M-xOR"/>
-                            <constraint firstItem="56v-rs-qVF" firstAttribute="top" secondItem="Rl8-OL-9vk" secondAttribute="bottom" constant="44" id="BCQ-kT-SKx"/>
+                            <constraint firstItem="56v-rs-qVF" firstAttribute="top" secondItem="Rl8-OL-9vk" secondAttribute="bottom" constant="44" id="BCQ-kT-SKx">
+                                <variation key="widthClass=compact" constant="18"/>
+                            </constraint>
                             <constraint firstItem="ivc-nR-J4P" firstAttribute="top" secondItem="uQg-nt-Yfn" secondAttribute="bottom" constant="8" id="C0g-A7-E8a"/>
                             <constraint firstItem="5aV-gJ-KzP" firstAttribute="leading" secondItem="tYk-Q0-kB4" secondAttribute="trailing" constant="8" id="F0M-gA-1Qu"/>
                             <constraint firstItem="5aV-gJ-KzP" firstAttribute="top" secondItem="56v-rs-qVF" secondAttribute="bottom" constant="-30" id="M2s-y6-z60"/>
@@ -3448,7 +3466,7 @@
         <image name="Launch Icon" width="170" height="170"/>
         <image name="My Events" width="22" height="22"/>
         <image name="Next Arrow Icon" width="22" height="22"/>
-        <image name="Optional Icon" width="110" height="25"/>
+        <image name="Optional Icon" width="80" height="20"/>
         <image name="Round Button-Blank-Orange" width="170" height="50"/>
         <image name="Round Button-Blank-Red" width="170" height="50"/>
         <image name="Settings" width="22" height="22"/>
