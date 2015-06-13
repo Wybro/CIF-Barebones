@@ -90,6 +90,8 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
             self.zipCodeButton.enabled = true
             self.zipCodeCurrentSettingImage.hidden = true
             
+            labelFadeOut(self.currentZipCodeLabel)
+            buttonFadeOut(self.editZipCodeButton)
             self.currentZipCodeLabel.hidden = true
             self.editZipCodeButton.hidden = true
             return self.currentLocationCurrentSettingImage
@@ -105,6 +107,8 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
             self.currentZipCodeLabel.text = "Current: " + settingsMgr.getZipCodeValue()
             self.currentZipCodeLabel.hidden = false
             self.editZipCodeButton.hidden = false
+            labelFadeIn(self.currentZipCodeLabel)
+            buttonFadeInSlow(self.editZipCodeButton)
             return self.zipCodeCurrentSettingImage
         }
     }
@@ -237,6 +241,14 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
             }, completion: nil)
     }
     
+    func buttonFadeInSlow(sender: UIButton) {
+        sender.alpha = 0
+        sender.hidden = false
+        UIView.animateWithDuration(1.25, delay: 0, options: nil, animations: { () -> Void in
+            sender.alpha = 1.0
+            }, completion: nil)
+    }
+    
     func buttonFadeOut(sender: UIButton) {
         sender.alpha = 1.0
         UIView.animateWithDuration(0.3, delay: 0, options: nil, animations: { () -> Void in
@@ -274,6 +286,20 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
         image.alpha = 1.0
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             image.alpha = 0.0
+        })
+    }
+    
+    func labelFadeIn(label: UILabel) {
+        label.alpha = 0.0
+        UIView.animateWithDuration(1.25, animations: { () -> Void in
+            label.alpha = 1.0
+        })
+    }
+    
+    func labelFadeOut(label: UILabel) {
+        label.alpha = 1.0
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            label.alpha = 0.0
         })
     }
     
