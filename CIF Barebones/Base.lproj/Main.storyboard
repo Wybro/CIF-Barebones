@@ -355,6 +355,9 @@
                                         <include reference="1ap-vi-39z"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="1Hu-fU-gAv" id="LWQ-v6-q9c"/>
+                                </connections>
                             </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5S-e7-Dnb">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -3092,6 +3095,9 @@
                                         <include reference="UFK-uK-dOZ"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="AeL-PD-Q69" id="FpI-Rb-fXp"/>
+                                </connections>
                             </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVY-Ko-NaC">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>

@@ -11,7 +11,7 @@ import CoreLocation
 import MapKit
 
 
-class locationSettingsViewController: UIViewController, CLLocationManagerDelegate {
+class locationSettingsViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
 
     //MARK: UI Elements
     @IBOutlet weak var currentLocationButton: UIButton!
@@ -64,6 +64,17 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        view.endEditing(true)
+    }
+    
+    // Text Field Delegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
     
     //MARK: UI Buttons
     @IBAction func useCurrentLocation(sender: UIButton) {
@@ -135,7 +146,9 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
             self.acceptEntryButton.alpha = 1
             self.cancelEntryButton.alpha = 1
             self.zipCodeEntryField.alpha = 1
-            }, completion: nil)
+            }, completion: { (complete: Bool) in
+                self.zipCodeEntryField.becomeFirstResponder()
+        })
         
     }
     

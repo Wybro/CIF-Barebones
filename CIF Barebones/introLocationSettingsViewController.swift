@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class introLocationSettingsViewController: UIViewController, CLLocationManagerDelegate {
+class introLocationSettingsViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     
     //MARK: UI Elements
     @IBOutlet weak var currentLocationButton: UIButton!
@@ -47,7 +47,7 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
         
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
+                
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -71,6 +71,16 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        view.endEditing(true)
+    }
+    
+    // Text Field Delegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return true
     }
     
     //MARK: UI Buttons
@@ -144,7 +154,10 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
             self.acceptEntryButton.alpha = 1
             self.cancelEntryButton.alpha = 1
             self.zipCodeEntryField.alpha = 1
-            }, completion: nil)
+            }, completion: { (complete: Bool) in
+                self.zipCodeEntryField.becomeFirstResponder()
+        })
+        
         
     }
     
