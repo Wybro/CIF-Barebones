@@ -31,6 +31,9 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
     @IBOutlet weak var currentLocationCurrentSettingImage: UIImageView!
     @IBOutlet weak var zipCodeCurrentSettingImage: UIImageView!
     
+    @IBOutlet weak var currentZipCodeLabel: UILabel!
+    @IBOutlet weak var editZipCodeButton: UIButton!
+    
     let locationManager = CLLocationManager()
     
     //MARK: View & Misc Methods
@@ -78,6 +81,7 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
     }
     
     func checkCurrentLocationSetting() -> UIImageView {
+        // Using current location
         if settingsMgr.getLocationSettings() == "currentLocation" {
             self.currentLocationCurrentSettingImage.hidden = false
             if self.currentLocationButton.enabled {
@@ -85,8 +89,12 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
             }
             self.zipCodeButton.enabled = true
             self.zipCodeCurrentSettingImage.hidden = true
+            
+            self.currentZipCodeLabel.hidden = true
+            self.editZipCodeButton.hidden = true
             return self.currentLocationCurrentSettingImage
         }
+        // Using ZIP Code
         else {
             self.zipCodeCurrentSettingImage.hidden = false
             self.currentLocationCurrentSettingImage.hidden = true
@@ -94,6 +102,9 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
                self.zipCodeButton.enabled = false
             }
             self.currentLocationButton.enabled = true
+            self.currentZipCodeLabel.text = "Current: " + settingsMgr.getZipCodeValue()
+            self.currentZipCodeLabel.hidden = false
+            self.editZipCodeButton.hidden = false
             return self.zipCodeCurrentSettingImage
         }
     }
@@ -123,6 +134,8 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
         self.currentLocationButton.enabled = false
         
         iconFadeOut(checkCurrentLocationSetting())
+        self.currentZipCodeLabel.hidden = true
+        self.editZipCodeButton.hidden = true
         
         enterZipCodeAnimation()
     }
@@ -150,6 +163,11 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
         self.zipCodeEntryField.text = ""
         exitZipCodeMode()
     }
+    
+    @IBAction func editZipCode(sender: UIButton) {
+        enterZipCodeMode()
+    }
+    
     
     // MARK: Animation Methods
     func enterZipCodeAnimation() {
