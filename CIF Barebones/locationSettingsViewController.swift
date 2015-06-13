@@ -76,7 +76,7 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
     
     // Text Field Delegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        view.endEditing(true)
         return true
     }
     

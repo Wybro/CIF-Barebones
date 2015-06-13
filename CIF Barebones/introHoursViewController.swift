@@ -8,7 +8,7 @@
 
 import UIKit
 
-class introHoursViewController: UIViewController {
+class introHoursViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var numberOfHoursTextField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
@@ -43,9 +43,20 @@ class introHoursViewController: UIViewController {
         
         UIView.animateWithDuration(0.5, delay: 0.50, options: .CurveEaseOut, animations: { () -> Void in
             self.moreInfoLabel.alpha = 1.0
-            }, completion: nil)
+            }, completion: { (complete: Bool) in
+                self.numberOfHoursTextField.becomeFirstResponder()
+        })
     }
     
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        view.endEditing(true)
+    }
+    
+    // Text Field Delegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return true
+    }
     
     
     @IBAction func doneEnteringHours(sender: UIButton) {

@@ -599,6 +599,9 @@
                                         <include reference="fTU-AA-OOS"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="eIF-D0-sTl" id="Xv5-we-rEj"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsm-YW-kKq">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -3528,6 +3531,9 @@
                                         <include reference="i4q-Gc-hR5"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="90F-ds-vwd" id="o9N-4Z-xXG"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
