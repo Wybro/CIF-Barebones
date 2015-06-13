@@ -2130,6 +2130,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="eFt-A4-kFQ" id="AWy-qx-gap"/>
+                                    <outlet property="delegate" destination="eFt-A4-kFQ" id="gPN-oy-c14"/>
                                 </connections>
                             </tableView>
                         </subviews>

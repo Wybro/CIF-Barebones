@@ -15,13 +15,19 @@ class exploreViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var eventsList: UITableView!
     var eventData: NSMutableArray! = NSMutableArray()
     
-
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+        return refreshControl
+        }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         loadData()
+        
+        self.eventsList.addSubview(self.refreshControl)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -34,6 +40,8 @@ class exploreViewController: UIViewController, UITableViewDataSource {
     }
     
     func loadData() {
+        self.eventData.removeAllObjects()
+        self.eventsList.reloadData()
         var findEvents: PFQuery = PFQuery(className: "Events")
         findEvents.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]?, error: NSError?) -> Void in
@@ -60,6 +68,11 @@ class exploreViewController: UIViewController, UITableViewDataSource {
                 println(error)
             }
         }
+    }
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        loadData()
+        refreshControl.endRefreshing()
     }
     
     func findDistance(userLocation: CLLocation, eventLocation: CLLocation) -> String {
@@ -95,7 +108,7 @@ class exploreViewController: UIViewController, UITableViewDataSource {
         return cell
     }
 
-    
+    // Consider passing the selected event to destVC and handling assignments there
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "eventMoreInfo" {
             var indexPath: NSIndexPath = self.eventsList.indexPathForSelectedRow()!
@@ -108,8 +121,6 @@ class exploreViewController: UIViewController, UITableViewDataSource {
             destViewController.selectedEventBio = selectedEvent.getBio()
             destViewController.selectedEventRequirements = selectedEvent.getRequirements()
         }
-    
-    
     }
     
     
