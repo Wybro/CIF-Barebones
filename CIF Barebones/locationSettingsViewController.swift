@@ -28,6 +28,9 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
     
     @IBOutlet weak var geocodeActivityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var currentLocationCurrentSettingImage: UIImageView!
+    @IBOutlet weak var zipCodeCurrentSettingImage: UIImageView!
+    
     let locationManager = CLLocationManager()
     
     //MARK: View & Misc Methods
@@ -46,18 +49,17 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
         
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = false
-    }
-    
     override func viewDidAppear(animated: Bool) {
+        self.iconFadeIn(self.checkCurrentLocationSetting())
+        
         UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
             self.currentLocationButton.alpha = 1.0
             }, completion: nil)
         
         UIView.animateWithDuration(0.5, delay: 0.25, options: .CurveEaseOut, animations: { () -> Void in
             self.zipCodeButton.alpha = 1.0
-            }, completion: nil)
+            }, completion: { (complete: Bool) in
+        })
     }
     
     override func didReceiveMemoryWarning() {
@@ -74,11 +76,33 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
         textField.resignFirstResponder()
         return true
     }
+    
+    func checkCurrentLocationSetting() -> UIImageView {
+        if settingsMgr.getLocationSettings() == "currentLocation" {
+            self.currentLocationCurrentSettingImage.hidden = false
+            if self.currentLocationButton.enabled {
+                self.currentLocationButton.enabled = false
+            }
+            self.zipCodeButton.enabled = true
+            self.zipCodeCurrentSettingImage.hidden = true
+            return self.currentLocationCurrentSettingImage
+        }
+        else {
+            self.zipCodeCurrentSettingImage.hidden = false
+            self.currentLocationCurrentSettingImage.hidden = true
+            if self.zipCodeButton.enabled {
+               self.zipCodeButton.enabled = false
+            }
+            self.currentLocationButton.enabled = true
+            return self.zipCodeCurrentSettingImage
+        }
+    }
 
     
     //MARK: UI Buttons
     @IBAction func useCurrentLocation(sender: UIButton) {
-        settingsMgr.setLocationSettings(sender.currentTitle!)
+//        settingsMgr.setLocationSettings("currentLocation")
+//        iconFadeIn(checkCurrentLocationSetting())
         
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
@@ -87,7 +111,8 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
     }
     
     @IBAction func useZipCode(sender: UIButton) {
-        settingsMgr.setLocationSettings(sender.currentTitle!)
+//        settingsMgr.setLocationSettings("zipCode")
+//        iconFadeIn(checkCurrentLocationSetting())
         enterZipCodeMode()
     }
     
@@ -96,6 +121,8 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
         buttonFadeOut(self.currentLocationButton)
         buttonFadeOut(self.zipCodeButton)
         self.currentLocationButton.enabled = false
+        
+        iconFadeOut(checkCurrentLocationSetting())
         
         enterZipCodeAnimation()
     }
@@ -115,7 +142,7 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
         }
         else {
             self.successCheckImageView.image = UIImage(named: "Error Circle Icon")
-            iconFade()
+            iconFadeOut(self.successCheckImageView)
         }
     }
     
@@ -179,6 +206,8 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
                 self.currentLocationButton.enabled = true
                 self.buttonFadeIn(self.currentLocationButton)
                 self.buttonFadeIn(self.zipCodeButton)
+                
+                self.iconFadeIn(self.checkCurrentLocationSetting())
         })
     }
     
@@ -216,10 +245,17 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
         })
     }
     
-    func iconFade() {
-        self.successCheckImageView.alpha = 1.0
+    func iconFadeIn(image: UIImageView) {
+        image.alpha = 0.0
         UIView.animateWithDuration(1.25, animations: { () -> Void in
-            self.successCheckImageView.alpha = 0.0
+            image.alpha = 1.0
+        })
+    }
+    
+    func iconFadeOut(image: UIImageView) {
+        image.alpha = 1.0
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            image.alpha = 0.0
         })
     }
     
@@ -237,6 +273,9 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
                 // Set user's current location
                 let currentLocation: CLLocation = pm.location
                 settingsMgr.setCurrentLocationValue(currentLocation)
+                // Only change settings if no error
+                settingsMgr.setLocationSettings("currentLocation")
+                self.iconFadeIn(self.checkCurrentLocationSetting())
             }
         })
     }
@@ -296,7 +335,10 @@ class locationSettingsViewController: UIViewController, CLLocationManagerDelegat
                 self.zipCodeAddressLabel.hidden = false
                 self.zipCodeAddressLabel.text = addressString
                 settingsMgr.setZipCodeValue(code)
-                self.iconFade()
+                self.iconFadeOut(self.successCheckImageView)
+                
+                // Only change settings if no error
+                settingsMgr.setLocationSettings("zipCode")
                 
             }
             else {

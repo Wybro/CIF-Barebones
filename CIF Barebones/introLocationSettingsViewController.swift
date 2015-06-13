@@ -85,7 +85,7 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
     
     //MARK: UI Buttons
     @IBAction func useCurrentLocation(sender: UIButton) {
-        settingsMgr.setLocationSettings(sender.currentTitle!)
+        settingsMgr.setLocationSettings("currentLocation")
         
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
@@ -95,7 +95,7 @@ class introLocationSettingsViewController: UIViewController, CLLocationManagerDe
     }
     
     @IBAction func useZipCode(sender: UIButton) {
-        settingsMgr.setLocationSettings(sender.currentTitle!)
+        settingsMgr.setLocationSettings("zipCode")
         enterZipCodeMode()
     }
     
